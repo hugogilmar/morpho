@@ -9,8 +9,10 @@
   <%= javascript_include_tag 'morpho/application' %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="container">
+    <%= render_flash_messages %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

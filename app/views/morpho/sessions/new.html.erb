@@ -1,0 +1,20 @@
+<div class="sign-in-form">
+  <%= simple_form_for :session, url: sign_in_path do |f| %>
+    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :password, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :remember_me, as: :boolean %>
+
+    <%= f.submit 'Sign in', class: 'button-primary u-full-width' %>
+
+    <ul class="unstyled">
+      <li>
+        <%= link_to 'Sign up with a new user account', sign_up_path %>
+      </li>
+      <li>
+        <%= link_to 'Forgot my password', new_reset_password_path %>
+      </li>
+    </ul>
+  <% end %>
+</div>

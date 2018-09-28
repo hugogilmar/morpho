@@ -451,7 +451,7 @@ Rails.application.config.sorcery.configure do |config|
     # Unlock token mailer method
     # Default: `:send_unlock_token_email`
     #
-    # user.unlock_token_email_method_name =
+    user.unlock_token_email_method_name = :unlock_token_email
 
     # when true sorcery will not automatically
     # send email with unlock token

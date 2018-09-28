@@ -1,0 +1,4 @@
+<% if logged_in? %>
+  <h3>Hello <strong><%= current_user.email %></strong>, welcome to this website!</h3>
+  <p>If you want to sign out, click <strong><%= link_to 'here', sign_out_path, method: :delete %></strong>.</p>
+<% end %>

@@ -1,0 +1,42 @@
+en:
+  morpho:
+    messages:
+      unauthenticated: 'You need to sign in first'
+      sessions:
+        create:
+          success: 'Sign in successfully'
+          failure: 'Sign in failed, please check the information provided'
+        destroy:
+          success: 'You sign out successfully'
+      users:
+        create:
+          success: 'Sign up successfully, you will receive al email with account activation instructions'
+          failure: 'Sign up failed, please review the errors below'
+      passwords:
+        create:
+          success: 'You will receive password reset instructions on your email inbox'
+          failure: 'No user acount found with that email'
+        edit:
+          success: 'Enter your new password on the fields below'
+          failure: 'Password reset failed, request a new activation token'
+      activations:
+        create:
+          success: 'You will receive user account activation instructions on your email inbox'
+          failure: 'No user account found with that email or user account is active already'
+        activate:
+          success: 'Activation successfully, sign in to continue'
+          failure: 'Activation failed, request a new activation token'
+      unlocks:
+        create:
+          success: 'You will receive user account unlock instructions on your email inbox'
+          failure: 'No user account found with that email or user account is unlocked already'
+        unlock:
+          success: 'Unlock successfully, sign in to continue'
+          failure: 'Unlock failed, request a new unlock token'
+    api:
+      messages:
+        bad_request: 'Bad request'
+        unauthorized: 'Unauthorized'
+        forbidden: 'Forbidden'
+        not_found: 'Not found'
+        unprocessable_entity: 'Unprocessable entity'

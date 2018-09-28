@@ -5,6 +5,15 @@ module Morpho
     has_many :authentications, dependent: :destroy
     accepts_nested_attributes_for :authentications
 
+    validates :password, length: { minimum: 12 }
+    validates :password, confirmation: true
+    validates :email, uniqueness: true
+    validates_email_format_of :email
+
+    def active?
+      self.activation_state == 'active'
+    end
+
     class << self
       # bugfix: https://github.com/Sorcery/sorcery/issues/146
       def create_and_validate_from_provider(provider, uid, attrs)

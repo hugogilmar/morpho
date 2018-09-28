@@ -1,0 +1,17 @@
+<div class="sign-up-form">
+  <%= simple_form_for user, url: sign_up_path do |f| %>
+    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :password, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :password_confirmation, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
+
+    <%= f.submit 'Sign up', class: 'button-primary u-full-width' %>
+
+    <ul class="unstyled">
+      <li>
+        <%= link_to 'Sign in with an existent user account', sign_in_path %>
+      </li>
+    </ul>
+  <% end %>
+</div>

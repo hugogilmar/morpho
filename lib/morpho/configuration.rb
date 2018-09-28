@@ -1,21 +1,21 @@
+require 'morpho/configurations/mailer'
+require 'morpho/configurations/api'
+require 'morpho/configurations/jwt'
+
 module Morpho
   class Configuration
-    attr_accessor :mailer_from
-    attr_accessor :mailer_address
-    attr_accessor :mailer_user_name
-    attr_accessor :mailer_password
-    attr_accessor :mailer_port
-    attr_accessor :mailer_authentication
-    attr_accessor :mailer_enable_starttls_auto
+    attr_accessor :mailer
+    attr_accessor :api
+    attr_accessor :jwt
+
+    attr_accessor :host
 
     def initialize
-      @mailer_from = ''
-      @mailer_address = ''
-      @mailer_user_name = ''
-      @mailer_password = ''
-      @mailer_port = ''
-      @mailer_authentication = ''
-      @mailer_enable_starttls_auto = ''
+      self.host = ''
+
+      self.mailer = Morpho::Configurations::Mailer.new
+      self.api = Morpho::Configurations::API.new
+      self.jwt = Morpho::Configurations::JWT.new
     end
   end
 end
