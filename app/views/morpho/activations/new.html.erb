@@ -1,0 +1,16 @@
+<div class="activation-form">
+  <%= simple_form_for :user, url: send_activation_path do |f| %>
+    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
+
+    <%= f.submit t('morpho.labels.activations.send_instructions'), class: 'button-primary u-full-width' %>
+
+    <ul class="unstyled">
+      <li>
+        <%= link_to t('morpho.labels.activations.sign_in'), sign_in_path %>
+      </li>
+      <li>
+        <%= link_to t('morpho.labels.activations.sign_up'), sign_up_path %>
+      </li>
+    </ul>
+  <% end %>
+</div>

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Morpho::Engine => "/morpho"
+  mount Morpho::Engine => '/'
 end
