@@ -10,6 +10,79 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
+ @import 'https://fonts.googleapis.com/css?family=Raleway:400,300,600';
+ @import 'https://cdn.jsdelivr.net/npm/skeleton-css@2.0.4/css/normalize.css';
+ @import 'https://cdn.jsdelivr.net/npm/skeleton-css@2.0.4/css/skeleton.css';
+
+body {
+  padding: 2em 1em;
+}
+
+.alert {
+  display: block;
+  padding: 1em;
+  border-left: 5px solid;
+  margin-bottom: 1em;
+}
+
+.alert-success {
+  background-color: #D5F5E3;
+  border-left-color: #2ECC71;
+  color: #2ECC71;
+}
+
+.alert-info {
+  background-color: #D6EAF8;
+  border-left-color: #3498DB;
+  color: #3498DB;
+}
+
+.alert-warning {
+  background-color: #FCF3CF;
+  border-left-color: #F1C40F;
+  color: #F1C40F;
+}
+
+.alert-error {
+  background-color: #F2D7D5;
+  border-left-color: #C0392B;
+  color: #C0392B;
+}
+
+.field_with_errors {
+  padding-bottom: 1em;
+}
+
+.field_with_errors input, .field_with_errors textarea, .field_with_errors select {
+  margin-bottom: 0.5em;
+}
+
+.field_with_errors span.error {
+  color: #C0392B;
+  text-transform: lowercase;
+}
+
+.input label.boolean {
+  display: inline;
+  font-weight: normal;
+  margin-left: 0.5em;
+}
+
+ul.unstyled {
+  list-style: none;
+}
+
+.sign-in-form, .sign-up-form, .activation-form, .reset-password-form, .unlock-form {
+  position: relative;
+  height: 50vh;
+}
+
+.sign-in-form form, .sign-up-form form, .activation-form form, .reset-password-form form, .unlock-form form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vh;
+}

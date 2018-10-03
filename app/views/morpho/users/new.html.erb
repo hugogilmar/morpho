@@ -1,0 +1,20 @@
+<div class="sign-up-form">
+  <%= simple_form_for user, url: sign_up_path do |f| %>
+    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :password, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :password_confirmation, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
+
+    <%= f.submit t('morpho.labels.users.sign_up'), class: 'button-primary u-full-width' %>
+
+    <ul class="unstyled">
+      <li>
+        <%= link_to t('morpho.labels.users.sign_in'), sign_in_path %>
+      </li>
+      <li>
+        <%= link_to t('morpho.labels.users.activation'), new_activation_path %>
+      </li>
+    </ul>
+  <% end %>
+</div>

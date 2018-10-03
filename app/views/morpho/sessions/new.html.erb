@@ -1,0 +1,23 @@
+<div class="sign-in-form">
+  <%= simple_form_for :session, url: sign_in_path do |f| %>
+    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :password, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
+
+    <%= f.input :remember_me, as: :boolean %>
+
+    <%= f.submit t('morpho.labels.sessions.sign_in'), class: 'button-primary u-full-width' %>
+
+    <ul class="unstyled">
+      <li>
+        <%= link_to t('morpho.labels.sessions.sign_up'), sign_up_path %>
+      </li>
+      <li>
+        <%= link_to t('morpho.labels.sessions.password_reset'), new_reset_password_path %>
+      </li>
+      <li>
+        <%= link_to t('morpho.labels.sessions.unlock'), new_unlock_path %>
+      </li>
+    </ul>
+  <% end %>
+</div>
