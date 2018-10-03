@@ -4,11 +4,14 @@
 
     <%= f.input :password_confirmation, required: true, placeholder: '************', input_html: { class: 'u-full-width' } %>
 
-    <%= f.submit 'Set new password', class: 'button-primary u-full-width' %>
+    <%= f.submit t('morpho.labels.passwords.change_password'), class: 'button-primary u-full-width' %>
 
     <ul class="unstyled">
       <li>
-        <%= link_to 'Sign in with an existent user account', sign_in_path %>
+        <%= link_to t('morpho.labels.passwords.sign_in'), sign_in_path %>
+      </li>
+      <li>
+        <%= link_to t('morpho.labels.passwords.sign_up'), sign_up_path %>
       </li>
     </ul>
   <% end %>

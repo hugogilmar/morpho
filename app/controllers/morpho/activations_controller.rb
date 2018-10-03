@@ -5,8 +5,7 @@ module Morpho
 
     def create
       if user && !user.active?
-        user.setup_activation
-        send_activation_needed_email!
+        user.resend_activation_needed_email!
         flash.now[:notice] = I18n.t('morpho.messages.activations.create.success')
         render :new
       else

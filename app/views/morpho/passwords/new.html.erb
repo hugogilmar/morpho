@@ -2,14 +2,14 @@
   <%= simple_form_for :user, url: send_reset_password_path do |f| %>
     <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
 
-    <%= f.submit 'Send password reset instructions', class: 'button-primary u-full-width' %>
+    <%= f.submit t('morpho.labels.passwords.send_instructions'), class: 'button-primary u-full-width' %>
 
     <ul class="unstyled">
       <li>
-        <%= link_to 'Sign in with an existent user account', sign_in_path %>
+        <%= link_to t('morpho.labels.passwords.sign_in'), sign_in_path %>
       </li>
       <li>
-        <%= link_to 'Sign up with a new user account', sign_up_path %>
+        <%= link_to t('morpho.labels.passwords.sign_up'), sign_up_path %>
       </li>
     </ul>
   <% end %>

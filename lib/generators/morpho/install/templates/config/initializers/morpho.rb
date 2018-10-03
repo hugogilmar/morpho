@@ -10,6 +10,8 @@ Morpho.configure do |config|
   config.jwt.secret = ''
   config.jwt.algorithm = 'HS256'
   config.jwt.header = 'Authorization'
+  config.jwt.expiration_time = 1.hour
   config.api.title = ''
   config.api.description = ''
+  config.auth.failed_login_attempts_limit = 5
 end

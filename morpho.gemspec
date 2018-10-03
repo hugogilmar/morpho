@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'simple_form', '~> 4.0.1'
 
   s.add_dependency 'grape', '~> 1.1.0'
+  s.add_dependency 'grape-entity', '~> 0.7.1'
   s.add_dependency 'grape-swagger', '~> 0.31.0'
   s.add_dependency 'grape-swagger-entity', '~> 0.3.0'
   s.add_dependency 'grape-swagger-representable', '~> 0.2.2'

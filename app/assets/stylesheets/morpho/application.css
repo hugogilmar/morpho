@@ -74,12 +74,12 @@ ul.unstyled {
   list-style: none;
 }
 
-.sign-in-form, .sign-up-form, .reset-password-form {
+.sign-in-form, .sign-up-form, .activation-form, .reset-password-form, .unlock-form {
   position: relative;
   height: 50vh;
 }
 
-.sign-in-form form, .sign-up-form form, .reset-password-form form {
+.sign-in-form form, .sign-up-form form, .activation-form form, .reset-password-form form, .unlock-form form {
   position: absolute;
   top: 50%;
   left: 50%;

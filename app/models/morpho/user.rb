@@ -14,6 +14,16 @@ module Morpho
       self.activation_state == 'active'
     end
 
+    def resend_activation_needed_email!
+      self.setup_activation
+      self.reload
+      self.send_activation_needed_email!
+    end
+
+    def resend_unlock_token_email!
+      self.login_lock!
+    end
+
     class << self
       # bugfix: https://github.com/Sorcery/sorcery/issues/146
       def create_and_validate_from_provider(provider, uid, attrs)

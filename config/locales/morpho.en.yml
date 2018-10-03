@@ -1,5 +1,28 @@
 en:
   morpho:
+    labels:
+      sessions:
+        sign_in: 'Sign in'
+        sign_up: 'Sign up with a new user account'
+        password_reset: 'Reset my account password'
+        unlock: 'Unlock my account'
+      users:
+        sign_up: 'Sign up'
+        sign_in: 'Sign in with an existent user account'
+        activation: 'Activate my account'
+      passwords:
+        send_instructions: 'Send reset password instructions'
+        sign_in: 'Sign in with an existent user account'
+        sign_up: 'Sign up with a new user account'
+        change_password: 'Change my password'
+      activations:
+        send_instructions: 'Send activation instructions'
+        sign_in: 'Sign in with an existent user account'
+        sign_up: 'Sign up with a new user account'
+      unlocks:
+        send_instructions: 'Send unlock instructions'
+        sign_in: 'Sign in with an existent user account'
+        sign_up: 'Sign up with a new user account'
     messages:
       unauthenticated: 'You need to sign in first'
       sessions:
@@ -19,6 +42,9 @@ en:
         edit:
           success: 'Enter your new password on the fields below'
           failure: 'Password reset failed, request a new activation token'
+        update:
+          success: 'Password successfully changed, sign in to continue'
+          failure: 'Password change failed, please review the errors below'
       activations:
         create:
           success: 'You will receive user account activation instructions on your email inbox'
@@ -33,10 +59,35 @@ en:
         unlock:
           success: 'Unlock successfully, sign in to continue'
           failure: 'Unlock failed, request a new unlock token'
+    mailer:
+      activation_needed:
+        subject: 'You have successfully signed up'
+      activation_success:
+        subject: 'Your account is now activated'
+      reset_password:
+        subject: 'You have requested to reset your password'
+      unlock_token:
+        subject: 'Your account has been locked'
     api:
       messages:
         bad_request: 'Bad request'
         unauthorized: 'Unauthorized'
+        payment_required: 'Payment required'
         forbidden: 'Forbidden'
         not_found: 'Not found'
+        method_not_allowed: 'Method not allowed'
         unprocessable_entity: 'Unprocessable entity'
+  simple_form:
+    'yes': 'Yes'
+    'no': 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: 'Please review the problems below:'
+    labels:
+      defaults:
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Confirm your password'
+        remember_me: 'Remember me'

@@ -1,12 +1,13 @@
-require 'grape-swagger'
-
 module Morpho
-  class API < Grape::API
+  class API < ::Grape::API
     format :json
     rescue_from :all
 
-    mount Morpho::Resources::Tokens
     mount Morpho::Resources::Users
+    mount Morpho::Resources::Tokens
+    mount Morpho::Resources::Passwords
+    mount Morpho::Resources::Unlocks
+    mount Morpho::Resources::Activations
 
     add_swagger_documentation({
       info: {

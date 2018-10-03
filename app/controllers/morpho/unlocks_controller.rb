@@ -5,7 +5,7 @@ module Morpho
 
     def create
       if user && user.login_locked?
-        user.login_lock!
+        user.resend_unlock_token_email!
         flash.now[:notice] = I18n.t('morpho.messages.unlocks.unlock.success')
         render :new
       else
