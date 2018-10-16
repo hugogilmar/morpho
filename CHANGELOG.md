@@ -1,5 +1,9 @@
 # Morpho changelog
 
+## 0.2.0
+- No auto-mount for API routes
+- API base class install from generator
+
 ## 0.1.1
 - Authentication API resources
 - Authentication WEB resources

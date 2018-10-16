@@ -35,4 +35,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'grape-swagger-representable', '~> 0.2.2'
 
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'simplecov'
 end

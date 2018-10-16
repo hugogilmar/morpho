@@ -21,7 +21,5 @@ Morpho::Engine.routes.draw do
   post 'send_unlock', to: 'unlocks#create'
   get 'unlock/:token', to: 'unlocks#show', as: :unlock
 
-  mount Morpho::API => '/api', as: :api
-
   root to: 'home#index'
 end
