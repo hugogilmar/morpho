@@ -8,8 +8,12 @@ module Morpho
       attr_accessor :port
       attr_accessor :authentication
       attr_accessor :enable_starttls_auto
+      attr_accessor :perform_deliveries
+      attr_accessor :delivery_method
 
       def initialize
+        self.perform_deliveries = true
+        self.delivery_method = :smtp
         self.from = ''
         self.address = ''
         self.user_name = ''
