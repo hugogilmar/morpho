@@ -1,7 +1,5 @@
-Hello <%= @user.email %>,
+<%= raw(I18n.t('morpho.mailer.unlock_token.body_text', 
+  email: @user.email,
+  url: @url
+)) %>
 
-Your account has been locked due to failed login attempts activity.
-
-To unlock your account now, just follow this link: <%= @url %>. Anyway it will be automatically unlocked in an hour.
-
-Have a great day!
