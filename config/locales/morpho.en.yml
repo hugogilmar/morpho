@@ -66,12 +66,68 @@ en:
     mailer:
       activation_needed:
         subject: 'You have successfully signed up'
+        body_html: |
+          <p>Welcome %{email},</p>
+          <p>You have successfully signed up, you're just a step behind to finish.</p>
+          <p>To verify your user email address and activate your user account, just follow this <a href="%{url}">link</a>.</p>
+          <p>Thanks for joining and have a great day!</p>
+        body_text: |
+          Welcome %{email},
+
+          You have successfully signed up, you're just a step behind to finish.
+
+          To verify your user email address and activate your user account, just follow this link: %{url}.
+
+          Thanks for joining and have a great day!
       activation_success:
         subject: 'Your account is now activated'
+        body_html: |
+          <p>Congratulations, %{email}!</p>
+          <p>You have successfully activated your user account.</p>
+          <p>To login to the site, just follow this link: %{url}.</p>
+          <p>Thanks for joining and have a great day!</p>
+
+        body_text: |
+          Congratulations, %{email}!
+
+          You have successfully activated your user account.
+
+          To login to the site, just follow this link: %{url}.
+
+          Thanks for joining and have a great day!
+
       reset_password:
         subject: 'You have requested to reset your password'
+        body_html: |
+          <p>Hello %{email},</p>
+          <p>You have requested to reset your password.</p>
+          <p>To choose a new password, just follow this <a href="%{url}">link</a>.</p>
+          <p>Have a great day!</p>
+        body_text: |
+          Hello %{email},
+
+          You have requested to reset your password.
+
+          To choose a new password, just follow this link: %{url}.
+
+          Have a great day!
+
       unlock_token:
         subject: 'Your account has been locked'
+        body_html: |
+          <p>Hello %{email},</p>
+          <p>Your account has been locked due to failed login attempts activity.</p>
+          <p>To unlock your account now, just follow this <a href=" %{url}">link</a>. Anyway it will be automatically unlocked in an hour.</p>
+          <p>Have a great day!</p>
+        body_text: |
+          Hello %{email},
+
+          Your account has been locked due to failed login attempts activity.
+
+          To unlock your account now, just follow this link: %{url}. Anyway it will be automatically unlocked in an hour.
+
+          Have a great day!
+
     api:
       messages:
         bad_request: 'Bad request'
