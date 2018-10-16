@@ -1,6 +1,10 @@
 en:
   morpho:
     labels:
+      validators:
+        contain_symbol: 'must contain a symbol'
+        contain_number: 'must contain a number'
+        contain_uppercase: 'must contain a uppercase letter'
       sessions:
         sign_in: 'Sign in'
         sign_up: 'Sign up with a new user account'
