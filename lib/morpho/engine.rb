@@ -37,5 +37,21 @@ module Morpho
         enable_starttls_auto: Morpho.config.mailer.enable_starttls_auto
       }
     end
+
+    def self.controllers_path
+      Pathname.new(
+        Morpho::Engine.root.join(
+          'app', 'controllers', 'morpho'
+        )
+      )
+    end
+
+    def self.models_path
+      Pathname.new(
+        Morpho::Engine.root.join(
+          'app', 'models', 'morpho'
+        )
+      )
+    end
   end
 end
