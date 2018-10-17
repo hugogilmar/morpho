@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'grape-swagger', '~> 0.31.0'
   s.add_dependency 'grape-swagger-entity', '~> 0.3.0'
   s.add_dependency 'grape-swagger-representable', '~> 0.2.2'
+  s.add_dependency 'rails-i18n', '~> 5.1'
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rubocop'
