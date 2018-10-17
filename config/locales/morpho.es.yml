@@ -1,0 +1,66 @@
+es:
+  morpho:
+    mailer:
+      activation_needed:
+        subject: 'Te has registrado correctamente'
+        body_html: |
+          <p>Bienvenido %{email},</p>
+          <p>Te has registrado exitosamente, solo estás un paso atrás para terminar.</p>
+          <p>Para verificar su dirección de correo electrónico de usuario y activar su cuenta de usuario, simplemente siga este <a href="%{url}">enlace</a>.</p>
+          <p>Gracias por unirte y que tengas un gran día!</p>
+        body_text: |
+          Bienvenido %{email},
+
+          Te has registrado exitosamente, solo estás un paso atrás para terminar.
+
+          Para verificar su dirección de correo electrónico de usuario y activar su cuenta de usuario, simplemente siga este enlace: %{url}.
+
+          Gracias por unirte y que tengas un gran día!
+      activation_success:
+        subject: 'Tu cuenta ya está activada'
+        body_html: |
+          <p>Felicidades, %{email}!</p>
+          <p>Has activado exitosamente tu cuenta de usuario.</p>
+          <p>Para iniciar sesión en el sitio, simplemente siga este enlace: %{url}.</p>
+          <p>Gracias por unirte y que tengas un gran día!</p>
+
+        body_text: |
+          Felicidades, %{email}!
+
+          Has activado exitosamente tu cuenta de usuario.
+
+          Para iniciar sesión en el sitio, simplemente siga este enlace: %{url}.
+
+          Gracias por unirte y que tengas un gran día!
+
+      reset_password:
+        subject: 'Has solicitado restablecer tu contraseña'
+        body_html: |
+          <p>Hola %{email},</p>
+          <p>Has solicitado restablecer tu contraseña.</p>
+          <p>Para elegir una nueva contraseña, simplemente siga este <a href="%{url}">enlace</a>.</p>
+          <p>¡Que tengas un gran día!</p>
+        body_text: |
+          Hola %{email},
+
+          Has solicitado restablecer tu contraseña.
+
+          Para elegir una nueva contraseña, simplemente siga este: %{url}.
+
+          ¡Que tengas un gran día!
+
+      unlock_token:
+        subject: 'Su cuenta ha sido bloqueada'
+        body_html: |
+          <p>Hola %{email},</p>
+          <p>Su cuenta ha sido bloqueada debido a una actividad fallida de intentos de inicio de sesión.</p>
+          <p>Para desbloquear tu cuenta ahora, solo sigue este <a href=" %{url}">enlace</a>. De todos modos se desbloqueará automáticamente en una hora.</p>
+          <p>¡Que tengas un gran día!</p>
+        body_text: |
+          Hola %{email},
+
+          Su cuenta ha sido bloqueada debido a una actividad fallida de intentos de inicio de sesión.
+
+          Para desbloquear tu cuenta ahora, solo sigue este enlace: %{url}. De todos modos se desbloqueará automáticamente en una hora.
+
+          ¡Que tengas un gran día!
