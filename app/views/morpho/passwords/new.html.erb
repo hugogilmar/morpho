@@ -1,10 +1,10 @@
-<div class="reset-password-form">
+<div class="">
   <%= simple_form_for :user, url: send_reset_password_path do |f| %>
-    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: 'u-full-width' } %>
+    <%= f.input :email, required: true, placeholder: 'johndoe@example.com', input_html: { class: '' } %>
 
-    <%= f.submit t('morpho.labels.passwords.send_instructions'), class: 'button-primary u-full-width' %>
+    <%= f.submit t('morpho.labels.passwords.send_instructions'), class: 'button-primary ' %>
 
-    <ul class="unstyled">
+    <ul class="">
       <li>
         <%= link_to t('morpho.labels.passwords.sign_in'), sign_in_path %>
       </li>
