@@ -55,12 +55,12 @@ module Morpho
       end
 
       def jwt_encode(payload)
-        JWT.encode(payload, Morpho.config.jwt.secret, Morpho.config.jwt.algorithm)
+        Morpho::Cipher.jwt_encode(payload)
       end
 
       def jwt_decode(token)
         begin
-          return JWT.decode(token, Morpho.config.jwt.secret, true, { algorithm: Morpho.config.jwt.algorithm })
+          return Morpho::Cipher.jwt_decode(token)
         rescue
           nil
         end
