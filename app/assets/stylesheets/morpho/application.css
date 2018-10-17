@@ -15,7 +15,8 @@
  @import 'https://fonts.googleapis.com/css?family=Raleway:400,300,600';
  @import 'https://cdn.jsdelivr.net/npm/skeleton-css@2.0.4/css/normalize.css';
  @import 'https://cdn.jsdelivr.net/npm/skeleton-css@2.0.4/css/skeleton.css';
-
+ @import 'https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css';
+ 
 body {
   padding: 2em 1em;
 }
