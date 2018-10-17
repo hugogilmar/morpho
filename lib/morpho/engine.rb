@@ -14,18 +14,21 @@ module Morpho
     end
 
     initializer 'morpho.configurations', after: :load_config_initializers do |app|
-      ActionMailer::Base.delivery_method = :smtp
-      ActionMailer::Base.perform_deliveries = true
+      mailer = ActionMailer::Base
+      mailer.delivery_method = Morpho.config.mailer.delivery_method
+                                     .to_s.to_sym
+      mailer.perform_deliveries = Morpho.config.mailer
+                                        .perform_deliveries
 
-      ActionMailer::Base.default_options = {
+      mailer.default_options = {
         from: Morpho.config.mailer.from
       }
 
-      ActionMailer::Base.default_url_options = {
+      mailer.default_url_options = {
         host: Morpho.config.host
       }
 
-      ActionMailer::Base.smtp_settings = {
+      mailer.smtp_settings = {
         address: Morpho.config.mailer.address,
         port: Morpho.config.mailer.port,
         user_name: Morpho.config.mailer.user_name,
@@ -33,6 +36,22 @@ module Morpho
         authentication: Morpho.config.mailer.authentication,
         enable_starttls_auto: Morpho.config.mailer.enable_starttls_auto
       }
+    end
+
+    def self.controllers_path
+      Pathname.new(
+        Morpho::Engine.root.join(
+          'app', 'controllers', 'morpho'
+        )
+      )
+    end
+
+    def self.models_path
+      Pathname.new(
+        Morpho::Engine.root.join(
+          'app', 'models', 'morpho'
+        )
+      )
     end
   end
 end

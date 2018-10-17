@@ -8,10 +8,10 @@ module Morpho
           success Morpho::Entities::User
         end
         params do
-          requires :user, type: Morpho::Entities::UserSignUp
+          requires :data, type: Morpho::Entities::UserSignUp
         end
         post do
-          register(params[:user])
+          register(params[:data])
         end
       end
     end
