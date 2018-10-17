@@ -11,6 +11,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Spanish translations
 
+### Removed
+
+- Removed styles and css dependencies (implement your own in the project)
+
 ## [0.2.1]
 - Custom validator added for password strength check
 - Engine initializer configurations from environment variables
