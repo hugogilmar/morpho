@@ -5,7 +5,7 @@ module Morpho
     has_many :authentications, dependent: :destroy
     accepts_nested_attributes_for :authentications
 
-    validates :password, length: { minimum: 12 },
+    validates :password, length: { minimum: Morpho.config.auth.password_minimum_length },
               :'morpho/validators/contain_number' => true,
               :'morpho/validators/contain_uppercase' => true,
               :'morpho/validators/contain_symbol' => true
