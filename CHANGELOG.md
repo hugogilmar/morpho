@@ -5,6 +5,22 @@ All notable changes to `morpho` will be documented in this file.
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
 
+## [0.3.1] - 2018-10-18
+
+### Changed
+
+- Error envelope for sign in and sign up responses
+
+### Added
+
+- Custom messages on sign in about account status
+- Sign in endpoint documentation for success and failure responses
+- Sign in success entity
+
+### Removed
+
+- Authentication token entity moved to sign in namespace
+
 ## [0.3.0] - 2018-09-27
 
 ### Added
