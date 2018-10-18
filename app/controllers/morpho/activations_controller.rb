@@ -17,9 +17,9 @@ module Morpho
     def show
       if user && !user.active?
         user.activate!
-        redirect_to sign_in_path, success: I18n.t('morpho.messages.activations.activate.success')
+        render "morpho/activations/success"
       else
-        redirect_to sign_in_path, error: I18n.t('morpho.messages.activations.activate.failure')
+        render "morpho/activations/failure"
       end
     end
 
