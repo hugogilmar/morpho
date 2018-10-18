@@ -5,16 +5,16 @@ module Morpho
 
       namespace :tokens do
         desc 'Request user authentication token' do
-          success Morpho::Entities::AuthenticationToken
+          success Morpho::Entities::SignIn::Success
           failure [
             [ 401, I18n.t('morpho.api.messages.unauthorized'), Morpho::Entities::Error ]
           ]
         end
         params do
-          requires :user, type: Morpho::Entities::UserSignIn
+          requires :data, type: Morpho::Entities::UserSignIn
         end
         post do
-          login(params[:user])
+          login(params[:data])
         end
       end
     end
