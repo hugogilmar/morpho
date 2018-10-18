@@ -1,5 +1,6 @@
 require 'morpho/loader'
 require 'morpho/engine'
+require 'morpho/cipher'
 require 'morpho/version'
 require 'morpho/configuration'
 require 'morpho/validators/contain_number_validator'
