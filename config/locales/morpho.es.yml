@@ -1,5 +1,68 @@
 es:
   morpho:
+    labels:
+      validators:
+        contain_symbol: 'debe de contener un caracter especial'
+        contain_number: 'debe de contener un número'
+        contain_uppercase: 'debe de contener al menos una letra en mayúscula'
+      sessions:
+        sign_in: 'Iniciar sesión'
+        sign_up: 'Regístrate con una nueva cuenta de usuario'
+        password_reset: 'Restablecer la contraseña de mi cuenta'
+        unlock: 'Desbloquear mi cuenta'
+      users:
+        sign_up: 'Regístrate'
+        sign_in: 'Inicia sesión con una cuenta de usuario existente'
+        activation: 'Activar mi cuenta'
+      passwords:
+        send_instructions: 'Enviar instrucciones de restablecer contraseña'
+        sign_in: 'Inicia sesión con una cuenta de usuario existente'
+        sign_up: 'Regístrate con una nueva cuenta de usuario'
+        change_password: 'Cambiar mi contraseña'
+      activations:
+        send_instructions: 'Enviar instrucciones de activación'
+        sign_in: 'Inicia sesión con una cuenta de usuario existente'
+        sign_up: 'Regístrate con una nueva cuenta de usuario'
+      unlocks:
+        send_instructions: 'Enviar instrucciones de desbloqueo'
+        sign_in: 'Inicia sesión con una cuenta de usuario existente'
+        sign_up: 'Regístrate con una nueva cuenta de usuario'
+    messages:
+      unauthenticated: 'Necesitas iniciar sesión primero'
+      sessions:
+        create:
+          success: 'Inicia sesión exitosamente'
+          failure: 'Error de inicio de sesión, por favor verifique la información proporcionada'
+        destroy:
+          success: 'Usted cierra la sesión con éxito'
+      users:
+        create:
+          success: 'Regístrese con éxito, recibirá un correo electrónico con instrucciones de activación de cuenta.'
+          failure: 'Registro fallido, por favor revise los errores a continuación'
+      passwords:
+        create:
+          success: 'Recibirá instrucciones para restablecer su contraseña en su buzón de correo electrónico.'
+          failure: 'No se ha encontrado ninguna cuenta de usuario con ese correo electrónico.'
+        edit:
+          success: 'Ingrese su nueva contraseña en los campos de abajo'
+          failure: 'Error al restablecer la contraseña, solicitar un nuevo token de activación'
+        update:
+          success: 'Contraseña modificada correctamente, inicie sesión para continuar'
+          failure: 'Error de cambio de contraseña, por favor revise los errores a continuación'
+      activations:
+        create:
+          success: 'Recibirá instrucciones de activación de cuenta de usuario en su buzón de correo electrónico.'
+          failure: 'Ninguna cuenta de usuario encontrada con ese correo electrónico o cuenta de usuario ya está activa'
+        activate:
+          success: 'Activación exitosa, inicie sesión para continuar'
+          failure: 'La activación falló, solicita un nuevo token de activación'
+      unlocks:
+        create:
+          success: 'Recibirás instrucciones de desbloqueo de cuenta de usuario en tu buzón de correo electrónico.'
+          failure: 'Ninguna cuenta de usuario encontrada con ese correo electrónico o cuenta de usuario ya está desbloqueada'
+        unlock:
+          success: 'Desbloqueo exitoso, inicia sesión para continuar'
+          failure: 'Falló el desbloqueo, solicita un nuevo token de desbloqueo'
     mailer:
       activation_needed:
         subject: 'Te has registrado correctamente'
@@ -64,3 +127,27 @@ es:
           Para desbloquear tu cuenta ahora, solo sigue este enlace: %{url}. De todos modos se desbloqueará automáticamente en una hora.
 
           ¡Que tengas un gran día!
+
+    api:
+      messages:
+        bad_request: 'Solicitud incorrecta'
+        unauthorized: 'No autorizado'
+        payment_required: 'Pago requerido'
+        forbidden: 'Prohibido'
+        not_found: 'No encontrado'
+        method_not_allowed: 'Método no permitido'
+        unprocessable_entity: 'Entidad no procesable'
+  simple_form:
+    'yes': 'Si'
+    'no': 'No'
+    required:
+      text: 'requerido'
+      mark: '*'
+    error_notification:
+      default_message: 'Por favor revise los problemas a continuación:'
+    labels:
+      defaults:
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar la contraseña'
+        remember_me: 'Recuérdame'
