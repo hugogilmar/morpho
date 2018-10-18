@@ -10,6 +10,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 - Spanish translations
+- New cipher module
+- New config in auth, for setting the minimun password
 
 ### Removed
 
