@@ -11,7 +11,7 @@ module Morpho
         if user.save
           present user, with: Morpho::Entities::User
         else
-          render_unprocessable_entity(user.errors)
+          render_unprocessable_entity_detailed(user.errors)
         end
       end
     end
