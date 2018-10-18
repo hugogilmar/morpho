@@ -22,19 +22,19 @@ module Morpho
               if user.valid_password?(user_params[:password])
                 token = user_payload(user)
 
-                present token, with: Morpho::Entities::AuthenticationToken
+                present token, with: Morpho::Entities::SignIn::AuthenticationToken
               else
                 user.register_failed_login!
-                render_unauthorized
+                render_unauthorized_detailed([I18n.t('morpho.api.messages.unauthorized_detailed.bad_credentials')])
               end
             else
-              render_unauthorized
+              render_unauthorized_detailed([I18n.t('morpho.api.messages.unauthorized_detailed.locked')])
             end
           else
-            render_unauthorized
+            render_unauthorized_detailed([I18n.t('morpho.api.messages.unauthorized_detailed.unconfirmed')])
           end
         else
-          render_unauthorized
+          render_unauthorized_detailed([I18n.t('morpho.api.messages.unauthorized_detailed.unexistent')])
         end
       end
 
