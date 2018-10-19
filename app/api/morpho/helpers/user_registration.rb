@@ -1,8 +1,6 @@
 module Morpho
-  module Grape
+  module Helpers
     module UserRegistration
-      extend ActiveSupport::Concern
-
       protected
 
       def register(user_params)

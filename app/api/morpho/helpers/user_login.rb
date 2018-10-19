@@ -1,8 +1,6 @@
 module Morpho
-  module Grape
-    module JWTAuthentication
-      extend ActiveSupport::Concern
-
+  module Helpers
+    module UserLogin
       protected
 
       def logged_in?
@@ -14,12 +12,13 @@ module Morpho
       end
 
       def login(user_params)
-        user = User.find_by(email: user_params[:email])
+        user = Morpho::User.find_by(email: user_params[:email])
 
         if user
           if user.active?
             if !user.login_locked?
               if user.valid_password?(user_params[:password])
+                user.generate_refresh_token!
                 token = user_payload(user)
 
                 present token, with: Morpho::Entities::SignIn::AuthenticationToken
@@ -70,7 +69,7 @@ module Morpho
         expires_at = Time.now.to_i + Morpho.config.jwt.expiration_time
         issued_at = Time.now.to_i
 
-        { token: jwt_encode({ exp: expires_at, iat: issued_at, email: user.email }), expires_at: expires_at }
+        { authentication_token: jwt_encode({ exp: expires_at, iat: issued_at, email: user.email }), expires_at: expires_at, refresh_token: user.refresh_token }
       end
     end
   end
