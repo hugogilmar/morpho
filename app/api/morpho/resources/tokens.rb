@@ -1,7 +1,10 @@
 module Morpho
   module Resources
     class Tokens < ::Grape::API
-      helpers Morpho::Grape::HTTPResponses, Morpho::Grape::JWTAuthentication
+      helpers do
+        Morpho::Grape::HTTPResponses
+        Morpho::Grape::UserLogin
+      end
 
       namespace :tokens do
         desc 'Request user authentication token' do

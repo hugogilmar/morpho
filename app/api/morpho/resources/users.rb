@@ -1,7 +1,10 @@
 module Morpho
   module Resources
     class Users < ::Grape::API
-      helpers Morpho::Grape::HTTPResponses, Morpho::Grape::UserRegistration
+      helpers do
+        Morpho::Grape::HTTPResponses
+        Morpho::Grape::UserRegistration
+      end
 
       namespace :users do
         desc 'User registration' do

@@ -1,7 +1,10 @@
 module Morpho
   module Resources
     class Activations < ::Grape::API
-      helpers Morpho::Grape::HTTPResponses, Morpho::Grape::UserActivation
+      helpers do
+        Morpho::Grape::HTTPResponses
+        Morpho::Grape::UserActivation
+      end
 
       namespace :activations do
         desc 'Request user activation token' do

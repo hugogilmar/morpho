@@ -1,7 +1,10 @@
 module Morpho
   module Resources
     class Unlocks < ::Grape::API
-      helpers Morpho::Grape::HTTPResponses, Morpho::Grape::UserUnlock
+      helpers do
+        Morpho::Grape::HTTPResponses
+        Morpho::Grape::UserUnlock
+      end
 
       namespace :unlocks do
         desc 'Request user unlock token' do
