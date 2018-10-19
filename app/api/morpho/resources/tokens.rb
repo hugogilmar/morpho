@@ -18,6 +18,19 @@ module Morpho
         post do
           login(params[:data])
         end
+
+        desc 'Refresh user authentication token' do
+          success Morpho::Entities::SignIn::Success
+          failure [
+            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
+          ]
+        end
+        params do
+          requires :data, type: Morpho::Entities::SignIn::RefreshToken
+        end
+        post :refresh do
+          refresh_token(params[:data])
+        end
       end
     end
   end
