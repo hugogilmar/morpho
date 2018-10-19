@@ -14,7 +14,7 @@ module Morpho
       end
 
       def login(user_params)
-        user = User.find_by(email: user_params[:email])
+        user = Morpho::User.find_by(email: user_params[:email])
 
         if user
           if user.active?
