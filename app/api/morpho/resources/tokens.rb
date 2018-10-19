@@ -13,7 +13,7 @@ module Morpho
           ]
         end
         params do
-          requires :data, type: Morpho::Entities::UserSignIn
+          requires :data, type: Morpho::Entities::SignIn::Credentials
         end
         post do
           login(params[:data])
