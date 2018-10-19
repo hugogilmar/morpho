@@ -1,8 +1,6 @@
 module Morpho
-  module Grape
-    module UserActivation
-      extend ActiveSupport::Concern
-
+  module Helpers
+    module UserUnlock
       protected
 
       def current_user

@@ -4,6 +4,22 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.3.2] - 2018-10-19
+
+### Changed
+
+- Refactor grape helpers
+- Refactor sign in entities
+
+### Added
+
+- Refresh token endpoint
+- Refresh token on authentication token entity
+- Refresh token field on users
+
+### Revomed
+
+- User password validations
 
 ## [0.3.1] - 2018-10-18
 
