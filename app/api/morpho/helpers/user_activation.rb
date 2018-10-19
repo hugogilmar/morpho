@@ -1,8 +1,6 @@
 module Morpho
-  module Grape
-    module UserPasswordReset
-      extend ActiveSupport::Concern
-
+  module Helpers
+    module UserActivation
       protected
 
       def current_user

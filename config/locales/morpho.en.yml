@@ -142,6 +142,8 @@ en:
           bad_credentials: 'User email and/or password is incorrect'
           unconfirmed: 'User account has not been confirmed'
           locked: 'User account has been locked'
+        refresh_token:
+          invalid: 'Invalid token'
   simple_form:
     'yes': 'Yes'
     'no': 'No'
