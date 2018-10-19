@@ -142,6 +142,8 @@ es:
           bad_credentials: 'Correo electrónico y/o contraseña es incorrecto(a)'
           unconfirmed: 'Cuenta de usuario no ha sido confirmada'
           locked: 'Cuenta de usuario ha sido bloqueada'
+        refresh_token:
+          invalid: 'El token es inválido'
   simple_form:
     'yes': 'Si'
     'no': 'No'
