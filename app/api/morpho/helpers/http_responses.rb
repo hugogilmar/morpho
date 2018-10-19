@@ -1,8 +1,6 @@
 module Morpho
-  module Grape
+  module Helpers
     module HTTPResponses
-      extend ActiveSupport::Concern
-
       protected
 
       def render_bad_request

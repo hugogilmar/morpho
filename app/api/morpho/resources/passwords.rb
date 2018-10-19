@@ -1,10 +1,8 @@
 module Morpho
   module Resources
     class Passwords < ::Grape::API
-      helpers do
-        Morpho::Grape::HTTPResponses
-        Morpho::Grape::UserPasswordReset
-      end
+      helpers Morpho::Helpers::HTTPResponses,
+        Morpho::Helpers::UserPasswordReset
 
       namespace :passwords do
         desc 'Request user reset password token' do

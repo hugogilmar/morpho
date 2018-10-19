@@ -1,8 +1,6 @@
 module Morpho
-  module Grape
+  module Helpers
     module UserLogin
-      extend ActiveSupport::Concern
-
       protected
 
       def logged_in?
