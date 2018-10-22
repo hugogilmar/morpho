@@ -18,6 +18,7 @@ module Morpho
           if user.active?
             if !user.login_locked?
               if user.valid_password?(user_params[:password])
+                user.register_last_login_activity!(request.ip)
                 user.generate_refresh_token!
                 token = user_payload(user)
 

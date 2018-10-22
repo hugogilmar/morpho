@@ -12,6 +12,15 @@ module Morpho
       self.activation_state == 'active'
     end
 
+    def register_last_login_activity!(ip_address)
+      self.set_last_login_at(Time.now)
+      self.set_last_ip_address(ip_address)
+    end
+
+    def register_last_activity_time!
+      self.set_last_activity_at(Time.now)
+    end
+
     def resend_activation_needed_email!
       self.setup_activation
       self.reload
