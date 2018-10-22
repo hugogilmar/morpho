@@ -4,6 +4,12 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.3.3] - 2018-10-22
+
+### Added
+
+- Protocol configuration option
+
 ## [0.3.2] - 2018-10-19
 
 ### Changed
