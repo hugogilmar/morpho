@@ -2,6 +2,7 @@ module Morpho
   module Resources
     class Tokens < ::Grape::API
       helpers Morpho::Helpers::HTTPResponses,
+        Morpho::Helpers::JWTUtils,
         Morpho::Helpers::UserLogin,
         Morpho::Helpers::UserRefreshAuthenticationToken
 

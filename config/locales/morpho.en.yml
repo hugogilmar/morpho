@@ -144,6 +144,8 @@ en:
           locked: 'User account has been locked'
         refresh_token:
           invalid: 'Invalid token'
+        provider:
+          unregistered: 'Could not register user authentication provider'
   simple_form:
     'yes': 'Yes'
     'no': 'No'

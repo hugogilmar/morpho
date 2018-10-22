@@ -144,6 +144,8 @@ es:
           locked: 'Cuenta de usuario ha sido bloqueada'
         refresh_token:
           invalid: 'El token es inválido'
+        provider:
+          unregistered: 'No se ha podido registrar a el proveedor'
   simple_form:
     'yes': 'Si'
     'no': 'No'
