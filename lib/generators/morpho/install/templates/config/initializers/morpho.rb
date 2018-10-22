@@ -1,5 +1,6 @@
 Morpho.configure do |config|
   config.host = ENV.fetch('HOST', 'localhost:3000')
+  config.host = ENV.fetch('PROTOCOL', 'http')
   config.mailer.from = ENV.fetch('MAILER_FROM', 'no-reply@example.com')
   config.mailer.address = ENV.fetch('MAILER_ADDRESS', 'smtp.mailtrap.io')
   config.mailer.user_name = ENV.fetch('MAILER_USER_NAME', '')
