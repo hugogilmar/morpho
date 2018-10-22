@@ -4,6 +4,18 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.3.4] - 2018-10-22
+
+### Added
+
+- External provider login endpoint
+- JWT utils helper
+- Register user last login activity
+
+### Changed
+
+- JWT logic removed from user login helper to own helper
+
 ## [0.3.3] - 2018-10-22
 
 ### Added
