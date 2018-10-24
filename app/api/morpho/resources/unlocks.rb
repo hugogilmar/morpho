@@ -6,10 +6,14 @@ module Morpho
 
       namespace :unlocks do
         desc 'Request user unlock token' do
-          success Morpho::Entities::User
+          success Morpho::Entities::Unlock::Success
+          failure [
+            [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
+            [ 405, I18n.t('morpho.api.messages.method_not_allowed'), Morpho::Entities::Error ]
+          ]
         end
         params do
-          requires :user, type: Morpho::Entities::User
+          requires :data, type: Morpho::Entities::Unlock::UserEmail
         end
         post do
           if current_user
