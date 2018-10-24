@@ -4,7 +4,7 @@ module Morpho
       protected
 
       def current_user
-        @current_user ||= Morpho::User.find_by(params[:user])
+        @current_user ||= Morpho::User.find_by(params[:data])
       end
     end
   end
