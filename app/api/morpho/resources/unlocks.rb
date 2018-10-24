@@ -13,7 +13,7 @@ module Morpho
           ]
         end
         params do
-          requires :data, type: Morpho::Entities::Unlock::UserEmail
+          requires :data, type: Morpho::Entities::UserEmail
         end
         post do
           if current_user

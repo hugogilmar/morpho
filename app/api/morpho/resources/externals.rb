@@ -10,7 +10,7 @@ module Morpho
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
         end
         params do
-          requires :data, type: Morpho::Entities::SignIn::External
+          requires :data, type: Morpho::Entities::External
         end
         post do
           login(params[:data])

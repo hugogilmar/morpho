@@ -14,7 +14,7 @@ module Morpho
           ]
         end
         params do
-          requires :data, type: Morpho::Entities::SignIn::Credentials
+          requires :data, type: Morpho::Entities::Credentials
         end
         post do
           login(params[:data])
@@ -27,7 +27,7 @@ module Morpho
           ]
         end
         params do
-          requires :data, type: Morpho::Entities::SignIn::RefreshToken
+          requires :data, type: Morpho::Entities::RefreshToken
         end
         post :refresh do
           refresh_token(params[:data])

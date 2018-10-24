@@ -9,7 +9,7 @@ module Morpho
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
         end
         params do
-          requires :user, type: Morpho::Entities::User
+          requires :data, type: Morpho::Entities::UserEmail
         end
         post do
           if current_user
