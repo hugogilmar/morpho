@@ -6,7 +6,7 @@ module Morpho
 
       namespace :activations do
         desc 'Request user activation token' do
-          success Morpho::Entities::User
+          success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
         end
         params do
           requires :user, type: Morpho::Entities::User

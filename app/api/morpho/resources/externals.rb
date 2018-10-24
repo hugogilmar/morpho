@@ -7,7 +7,7 @@ module Morpho
 
       namespace :externals do
         desc 'Request user authentication from external provider' do
-          success Morpho::Entities::User
+          success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
         end
         params do
           requires :data, type: Morpho::Entities::SignIn::External

@@ -8,7 +8,7 @@ module Morpho
 
       namespace :tokens do
         desc 'Request user authentication token' do
-          success Morpho::Entities::SignIn::Success
+          success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
           failure [
             [ 401, I18n.t('morpho.api.messages.unauthorized'), Morpho::Entities::Error ]
           ]
@@ -21,7 +21,7 @@ module Morpho
         end
 
         desc 'Refresh user authentication token' do
-          success Morpho::Entities::SignIn::Success
+          success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
           failure [
             [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
           ]

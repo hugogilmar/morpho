@@ -6,7 +6,7 @@ module Morpho
 
       namespace :users do
         desc 'User registration' do
-          success Morpho::Entities::User
+          success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
         end
         params do
           requires :data, type: Morpho::Entities::UserSignUp
