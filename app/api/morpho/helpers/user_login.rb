@@ -18,11 +18,7 @@ module Morpho
           if user.active?
             if !user.login_locked?
               if user.valid_password?(user_params[:password])
-                user.register_last_login_activity!(request.ip)
-                user.generate_refresh_token!
-                token = user_payload(user)
-
-                present token, with: Morpho::Entities::SignIn::AuthenticationToken
+                render_authentication_token(user)
               else
                 user.register_failed_login!
                 render_unauthorized_detailed([I18n.t('morpho.api.messages.unauthorized_detailed.bad_credentials')])
@@ -36,6 +32,14 @@ module Morpho
         else
           render_unauthorized_detailed([I18n.t('morpho.api.messages.unauthorized_detailed.unexistent')])
         end
+      end
+
+      def render_authentication_token(user)
+        user.register_last_login_activity!(request.ip)
+        user.generate_refresh_token!
+        token = user_payload(user)
+
+        present token, with: Morpho::Entities::SignIn::AuthenticationToken
       end
     end
   end
