@@ -39,7 +39,7 @@ module Morpho
         user.generate_refresh_token!
         token = user_payload(user)
 
-        present token, with: Morpho::Entities::SignIn::AuthenticationToken
+        present token, with: Morpho::Entities::AuthenticationToken
       end
     end
   end
