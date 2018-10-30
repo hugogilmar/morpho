@@ -1,14 +1,14 @@
 module Morpho
   class User::Operation::ResetPassword < Trailblazer::Operation
     step :validate
-    failure :not_valid, fail_fast: true
+    fail :not_valid, fail_fast: true
     step :find
-    failure :not_found, fail_fast: true
+    fail :not_found, fail_fast: true
     step :check
-    failure :not_allowed, fail_fast: true
+    fail :not_allowed, fail_fast: true
     step :reset_password_email
-    failure :not_delivered, fail_fast: true
-    success :render
+    fail :not_delivered, fail_fast: true
+    pass :render
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::ResetPassword.new(OpenStruct.new)

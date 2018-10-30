@@ -1,11 +1,11 @@
 module Morpho
   class User::Operation::RefreshToken < Trailblazer::Operation
     step :validate
-    failure :not_valid, fail_fast: true
+    fail :not_valid, fail_fast: true
     step :find
-    failure :not_found, fail_fast: true
+    fail :not_found, fail_fast: true
     step :generate_refresh_token
-    success :render
+    pass :render
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::RefreshToken.new(OpenStruct.new)

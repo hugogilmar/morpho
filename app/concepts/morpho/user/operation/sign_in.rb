@@ -1,18 +1,18 @@
 module Morpho
   class User::Operation::SignIn < Trailblazer::Operation
     step :validate
-    failure :not_valid, fail_fast: true
+    fail :not_valid, fail_fast: true
     step :find
-    failure :not_found, fail_fast: true
+    fail :not_found, fail_fast: true
     step :check_active
-    failure :not_active, fail_fast: true
+    fail :not_active, fail_fast: true
     step :check_unlocked
-    failure :locked, fail_fast: true
+    fail :locked, fail_fast: true
     step :check_password
-    failure :wrong_password, fail_fast: true
+    fail :wrong_password, fail_fast: true
     step :generate_refresh_token
     step :register_last_login_activity
-    success :render
+    pass :render
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::SignIn.new(OpenStruct.new)

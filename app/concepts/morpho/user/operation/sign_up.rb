@@ -1,12 +1,12 @@
 module Morpho
   class User::Operation::SignUp < Trailblazer::Operation
     step :validate
-    failure :not_valid, fail_fast: true
+    fail :not_valid, fail_fast: true
     step :sync
-    failure :not_synced, fail_fast: true
+    fail :not_synced, fail_fast: true
     step :save
-    failure :not_saved, fail_fast: true
-    success :render
+    fail :not_saved, fail_fast: true
+    pass :render
 
     def validate(options, **)
       options['contract'] = Morpho::User::Contract::SignUp.new(Morpho::User.new)
