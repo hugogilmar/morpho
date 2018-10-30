@@ -7,7 +7,7 @@ module Morpho
     step :check
     failure :not_allowed, fail_fast: true
     step :unlock_token_email
-    failure :not_delivered
+    failure :not_delivered, fail_fast: true
     success :render
 
     def validate (options, **)

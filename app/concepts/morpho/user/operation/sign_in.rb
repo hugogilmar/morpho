@@ -5,11 +5,11 @@ module Morpho
     step :find
     failure :not_found, fail_fast: true
     step :check_active
-    failure :not_active
+    failure :not_active, fail_fast: true
     step :check_unlocked
-    failure :locked
+    failure :locked, fail_fast: true
     step :check_password
-    failure :wrong_password
+    failure :wrong_password, fail_fast: true
     step :generate_refresh_token
     step :register_last_login_activity
     success :render
