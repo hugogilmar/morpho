@@ -1,27 +1,38 @@
 module Morpho
   module Resources
     class Unlocks < ::Grape::API
-      helpers Morpho::Helpers::HTTPResponses,
-        Morpho::Helpers::UserUnlock
+      helpers Morpho::Helpers::HTTPResponses
 
       namespace :unlocks do
         desc 'Request user unlock token' do
-          success Morpho::Entities::User
+          success Morpho::Grape::DataWrapper.new(Morpho::Entities::UserEmail)
+          failure [
+            [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
+            [ 405, I18n.t('morpho.api.messages.method_not_allowed'), Morpho::Entities::Error ],
+            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
+          ]
         end
         params do
-          requires :user, type: Morpho::Entities::User
+          requires :data, type: Morpho::Entities::UserEmail
         end
         post do
-          if current_user
-            if current_user.login_locked?
-              current_user.resend_unlock_token_email!
+          result = Morpho::User::Operation::Unlock.call(params)
 
-              present current_user, with: Morpho::Entities::User
-            else
-              render_method_not_allowed
-            end
+          if result.success?
+            present result['model'], with: Morpho::Entities::User
           else
-            render_not_found
+            case result['error']
+            when :not_valid
+              render_unprocessable_entity(result['contract'].errors)
+            when :not_found
+              render_not_found
+            when :not_allowed
+              render_method_not_allowed
+            when :not_delivered
+              render_unprocessable_entity
+            else
+              render_unprocessable_entity
+            end
           end
         end
       end

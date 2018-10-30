@@ -4,6 +4,7 @@ module Morpho
     rescue_from :all
 
     mount Morpho::Resources::Users
+    mount Morpho::Resources::Externals
     mount Morpho::Resources::Tokens
     mount Morpho::Resources::Passwords
     mount Morpho::Resources::Unlocks

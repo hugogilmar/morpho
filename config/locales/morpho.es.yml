@@ -137,13 +137,16 @@ es:
         not_found: 'No encontrado'
         method_not_allowed: 'Método no permitido'
         unprocessable_entity: 'Entidad no procesable'
-        unauthorized_detailed:
+        locked: 'Bloqueado'
+        sign_in:
           unexistent: 'Correo electrónico no pertenece a un usuario registrado'
           bad_credentials: 'Correo electrónico y/o contraseña es incorrecto(a)'
           unconfirmed: 'Cuenta de usuario no ha sido confirmada'
           locked: 'Cuenta de usuario ha sido bloqueada'
         refresh_token:
           invalid: 'El token es inválido'
+        provider:
+          unregistered: 'No se ha podido registrar a el proveedor'
   simple_form:
     'yes': 'Si'
     'no': 'No'
