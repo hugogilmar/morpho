@@ -1,15 +1,17 @@
 module Morpho
   class User < ApplicationRecord
+    include Morpho::Tokenable
     authenticates_with_sorcery!
 
     has_many :authentications, dependent: :destroy
     accepts_nested_attributes_for :authentications
 
-    validates :email, uniqueness: true
-    validates_email_format_of :email
-
     def active?
       self.activation_state == 'active'
+    end
+
+    def unlocked?
+      !self.login_locked?
     end
 
     def register_last_login_activity!(ip_address)

@@ -137,7 +137,8 @@ en:
         not_found: 'Not found'
         method_not_allowed: 'Method not allowed'
         unprocessable_entity: 'Unprocessable entity'
-        unauthorized_detailed:
+        locked: 'Locked'
+        sign_in:
           unexistent: 'Email address does not belongs to a registered account'
           bad_credentials: 'User email and/or password is incorrect'
           unconfirmed: 'User account has not been confirmed'

@@ -12,8 +12,8 @@ module Morpho
       attr_accessor :delivery_method
 
       def initialize
-        self.perform_deliveries = true
-        self.delivery_method = :smtp
+        self.perform_deliveries = false
+        self.delivery_method = :test
         self.from = ''
         self.address = ''
         self.user_name = ''

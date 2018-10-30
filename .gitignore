@@ -15,4 +15,5 @@ test/dummy/tmp/
 
 test/dummy/config/initializers/morpho.rb
 
+.env
 Gemfile.lock
