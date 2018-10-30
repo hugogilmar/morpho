@@ -5,9 +5,6 @@ module Morpho
     has_many :authentications, dependent: :destroy
     accepts_nested_attributes_for :authentications
 
-    validates :email, uniqueness: true
-    validates_email_format_of :email
-
     def active?
       self.activation_state == 'active'
     end
