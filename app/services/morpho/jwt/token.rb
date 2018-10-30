@@ -4,7 +4,7 @@ module Morpho
       begin
         token = Morpho::JWT::Decode.new(authentication_token)
 
-        HashWithIndifferentAccess.new(token)
+        HashWithIndifferentAccess.new(token.first)
       rescue
         HashWithIndifferentAccess.new
       end
