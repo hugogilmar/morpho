@@ -1,9 +1,7 @@
 module Morpho
   module Resources
     class Externals < ::Grape::API
-      helpers Morpho::Helpers::HTTPResponses,
-        Morpho::Helpers::JWTUtils,
-        Morpho::Helpers::UserExternalLogin
+      helpers Morpho::Helpers::HTTPResponses
 
       namespace :externals do
         desc 'Request user authentication from external provider' do
@@ -13,7 +11,18 @@ module Morpho
           requires :data, type: Morpho::Entities::External
         end
         post do
-          login(params[:data])
+          result = Morpho::User::Operation::ExternalSignIn.call(params, ip: request.ip)
+
+          if result.success?
+            present result['token'], with: Morpho::Entities::AuthenticationToken
+          else
+            case result['error']
+            when :not_valid
+              render_unprocessable_entity(result['contract'].errors)
+            else
+              render_unprocessable_entity
+            end
+          end
         end
       end
     end
