@@ -4,6 +4,30 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.0.0] - 2018-10-30
+
+### Added
+
+- Contracts and operations for activations
+- Contracts and operations for unlocks
+- Contracts and operations for sign in
+- Contracts and operations for sign up
+- Contracts and operations for external sign in
+- Contracts and operations for token refresh
+
+### Changed
+
+- Services instead of helper for JWT utilities
+- Simple version of JWT utils helpers
+- HTTP responses helpers simplified
+- Spanish translations for API responses
+
+### Removed
+
+- JWT helper methods for encode, decode and token extract from header and payload generation
+- Helper methods for sign in, sign up, password reset, activation, externals and unlock
+- Sign in entities
+
 ## [0.3.4] - 2018-10-22
 
 ### Added
