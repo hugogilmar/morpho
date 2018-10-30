@@ -23,7 +23,7 @@ module Morpho
           else
             case result['error']
             when :not_valid
-              render_unprocessable_entity_detailed(result['contract'].errors)
+              render_unprocessable_entity(result['contract'].errors)
             when :not_found
               render_not_found
             when :not_allowed
