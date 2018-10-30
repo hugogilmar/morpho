@@ -35,7 +35,7 @@ module Morpho
     end
 
     def render(options, **)
-      options['model'] = options['contract'].model
+      options['model']
     end
   end
 end
