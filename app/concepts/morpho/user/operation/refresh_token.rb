@@ -5,7 +5,7 @@ module Morpho
     step :find
     fail :not_found, fail_fast: true
     step :generate_refresh_token
-    pass :render
+    step :authentication_token
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::RefreshToken.new(OpenStruct.new)
@@ -28,7 +28,7 @@ module Morpho
       options['error'] = :not_found
     end
 
-    def render (options, **)
+    def authentication_token (options, **)
       options['token'] = Morpho::JWT::Payload.new(options['model'])
     end
   end

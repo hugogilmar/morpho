@@ -12,7 +12,7 @@ module Morpho
     fail :wrong_password, fail_fast: true
     step :generate_refresh_token
     step :register_last_login_activity
-    pass :render
+    step :authentication_token
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::SignIn.new(OpenStruct.new)
@@ -64,7 +64,7 @@ module Morpho
       options['error'] = :wrong_password
     end
 
-    def render (options, **)
+    def authentication_token (options, **)
       options['token'] = Morpho::JWT::Payload.new(options['model'])
     end
   end
