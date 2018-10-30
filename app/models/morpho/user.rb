@@ -10,6 +10,10 @@ module Morpho
       self.activation_state == 'active'
     end
 
+    def unlocked?
+      !self.login_locked?
+    end
+
     def register_last_login_activity!(ip_address)
       self.set_last_login_at(Time.now)
       self.set_last_ip_address(ip_address)
