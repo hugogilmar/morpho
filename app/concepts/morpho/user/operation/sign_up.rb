@@ -6,7 +6,6 @@ module Morpho
     fail :not_synced, fail_fast: true
     step :save
     fail :not_saved, fail_fast: true
-    pass :render
 
     def validate(options, **)
       options['contract'] = Morpho::User::Contract::SignUp.new(Morpho::User.new)
@@ -32,10 +31,6 @@ module Morpho
 
     def not_saved(options, **)
       options['error'] = :not_saved
-    end
-
-    def render(options, **)
-      options['model']
     end
   end
 end

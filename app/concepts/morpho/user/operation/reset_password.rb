@@ -8,7 +8,6 @@ module Morpho
     fail :not_allowed, fail_fast: true
     step :reset_password_email
     fail :not_delivered, fail_fast: true
-    pass :render
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::ResetPassword.new(OpenStruct.new)

@@ -8,7 +8,6 @@ module Morpho
     fail :not_allowed, fail_fast: true
     step :activation_email
     fail :not_delivered, fail_fast: true
-    pass :render
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::Activate.new(OpenStruct.new)
@@ -41,10 +40,6 @@ module Morpho
 
     def not_delivered (options, **)
       options['error'] = :not_delivered
-    end
-
-    def render (options, **)
-      options['model']
     end
   end
 end
