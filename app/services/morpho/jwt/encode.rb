@@ -1,9 +1,11 @@
 module Morpho
   class JWT::Encode
     def self.new(payload)
-      #begin
+      begin
         Morpho::Cipher.jwt_encode(payload)
-      #nd
+      rescue
+        nil
+      end
     end
   end
 end
