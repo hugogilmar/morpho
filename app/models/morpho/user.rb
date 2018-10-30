@@ -1,5 +1,6 @@
 module Morpho
   class User < ApplicationRecord
+    include Morpho::Tokenable
     authenticates_with_sorcery!
 
     has_many :authentications, dependent: :destroy
