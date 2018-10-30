@@ -10,6 +10,8 @@ module Morpho
     mount Morpho::Resources::Unlocks
     mount Morpho::Resources::Activations
 
+    mount Morpho::Resources::Hello
+
     add_swagger_documentation({
       info: {
         title: Morpho.config.api.title,
