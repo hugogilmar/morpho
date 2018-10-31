@@ -3,7 +3,7 @@ module Morpho
     module HTTPResponses
       protected
 
-      def render_bad_request(errors = [])
+      def render_bad_request(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.bad_request'),
           errors: errors,
@@ -11,7 +11,7 @@ module Morpho
         }, 400)
       end
 
-      def render_unauthorized(errors = [])
+      def render_unauthorized(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.unauthorized'),
           errors: errors,
@@ -19,11 +19,11 @@ module Morpho
         }, 401)
       end
 
-      def render_unauthorized_detailed(errors = [])
+      def render_unauthorized_detailed(errors = {})
         render_unauthorized(errors)
       end
 
-      def render_payment_required(errors = [])
+      def render_payment_required(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.payment_required'),
           errors: errors,
@@ -31,7 +31,7 @@ module Morpho
         }, 402)
       end
 
-      def render_forbidden(errors = [])
+      def render_forbidden(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.forbidden'),
           errors: errors,
@@ -39,7 +39,7 @@ module Morpho
         }, 403)
       end
 
-      def render_not_found(errors = [])
+      def render_not_found(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.not_found'),
           errors: errors,
@@ -47,7 +47,7 @@ module Morpho
         }, 404)
       end
 
-      def render_method_not_allowed(errors = [])
+      def render_method_not_allowed(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.method_not_allowed'),
           errors: errors,
@@ -55,7 +55,7 @@ module Morpho
         }, 405)
       end
 
-      def render_unprocessable_entity(errors = [])
+      def render_unprocessable_entity(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.unprocessable_entity'),
           errors: errors,
@@ -63,7 +63,7 @@ module Morpho
         }, 422)
       end
 
-      def render_locked(errors = [])
+      def render_locked(errors = {})
         error!({
           message: I18n.t('morpho.api.messages.locked'),
           errors: errors,
@@ -71,7 +71,7 @@ module Morpho
         }, 423)
       end
 
-      def render_unprocessable_entity_detailed(errors = [])
+      def render_unprocessable_entity_detailed(errors = {})
         render_unprocessable_entity(errors)
       end
 
