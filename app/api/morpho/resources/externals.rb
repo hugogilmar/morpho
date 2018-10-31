@@ -17,7 +17,7 @@ module Morpho
             present result['token'], with: Morpho::Entities::AuthenticationToken
           else
             case result['error']
-            when :not_valid
+            when :unprocessable_entity
               render_unprocessable_entity(result['contract'].errors)
             else
               render_unprocessable_entity
