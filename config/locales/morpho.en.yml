@@ -145,6 +145,9 @@ en:
           locked: 'User account has been locked'
         refresh_token:
           invalid: 'Invalid token'
+        unlock:
+          not_found: 'Email address does not belongs to a registered account'
+          method_not_allowed: 'User account has not been locked'
         provider:
           unregistered: 'Could not register user authentication provider'
   simple_form:
@@ -161,3 +164,10 @@ en:
         password: 'Password'
         password_confirmation: 'Confirm your password'
         remember_me: 'Remember me'
+  activemodel:
+    errors:
+      models:
+        morpho/user/contract/unlock:
+          attributes:
+            email:
+              invalid_email_address: 'invalid'

@@ -145,6 +145,9 @@ es:
           locked: 'Cuenta de usuario ha sido bloqueada'
         refresh_token:
           invalid: 'El token es inválido'
+        unlock:
+          not_found: 'Correo electrónico no pertenece a un usuario registrado'
+          method_not_allowed: 'Cuenta de usuario no ha sido bloqueada'
         provider:
           unregistered: 'No se ha podido registrar a el proveedor'
   simple_form:
@@ -161,3 +164,10 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmar la contraseña'
         remember_me: 'Recuérdame'
+  activemodel:
+    errors:
+      models:
+        morpho/user/contract/unlock:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'
