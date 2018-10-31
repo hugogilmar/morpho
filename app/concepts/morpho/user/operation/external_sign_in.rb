@@ -1,7 +1,7 @@
 module Morpho
   class User::Operation::ExternalSignIn < Trailblazer::Operation
     step :validate
-    fail :not_valid, fail_fast: true
+    fail :unprocessable_entity, fail_fast: true
     pass :find_authentication
     pass :find_user
     pass :sign_in
@@ -59,20 +59,8 @@ module Morpho
       options['user.model'].register_last_login_activity!(options['ip'])
     end
 
-    def not_valid (options, **)
-      options['error'] = :not_valid
-    end
-
-    def not_signed_in (options, **)
-      options['error'] = :not_signed_in
-    end
-
-    def not_registered (options, **)
-      options['error'] = :not_registered
-    end
-
-    def not_signed_up (options, **)
-      options['error'] = :not_signed_up
+    def unprocessable_entity (options, **)
+      options['error'] = :unprocessable_entity
     end
 
     def authentication_token (options, **)

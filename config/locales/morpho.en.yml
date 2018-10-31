@@ -151,8 +151,6 @@ en:
         unlock:
           not_found: 'Email address does not belongs to a registered account'
           method_not_allowed: 'User account has not been locked'
-        provider:
-          unregistered: 'Could not register user authentication provider'
   simple_form:
     'yes': 'Yes'
     'no': 'No'
