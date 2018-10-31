@@ -140,7 +140,7 @@ es:
         locked: 'Bloqueado'
         sign_in:
           not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          not_active: 'Cuenta de usuario no ha sido confirmada'
+          forbidden: 'Cuenta de usuario no ha sido confirmada'
           unauthorized: 'Correo electrónico y/o contraseña es incorrecto(a)'
           locked: 'Cuenta de usuario ha sido bloqueada'
         refresh_token:

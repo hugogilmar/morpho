@@ -28,7 +28,7 @@ module Morpho
               render_unprocessable_entity(result['contract'].errors)
             when :not_found
               render_not_found({ base: I18n.t('morpho.api.messages.sign_in.not_found') })
-            when :not_active
+            when :forbidden
               render_forbidden({ base: I18n.t('morpho.api.messages.sign_in.not_active') })
             when :locked
               render_locked({ base: I18n.t('morpho.api.messages.sign_in.locked') })

@@ -5,7 +5,7 @@ module Morpho
     step :find
     fail :not_found, fail_fast: true
     step :check_active
-    fail :not_active, fail_fast: true
+    fail :forbidden, fail_fast: true
     step :check_unlocked
     fail :locked, fail_fast: true
     step :check_password
@@ -51,8 +51,8 @@ module Morpho
       options['error'] = :not_found
     end
 
-    def not_active (options, **)
-      options['error'] = :not_active
+    def forbidden (options, **)
+      options['error'] = :forbidden
     end
 
     def locked (options, **)

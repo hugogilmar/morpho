@@ -140,7 +140,7 @@ en:
         locked: 'Locked'
         sign_in:
           not_found: 'Email address does not belongs to a registered account'
-          not_active: 'User account has not been confirmed'
+          forbidden: 'User account has not been confirmed'
           unauthorized: 'User email and/or password is incorrect'
           locked: 'User account has been locked'
         refresh_token:
