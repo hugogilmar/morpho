@@ -139,12 +139,12 @@ en:
         unprocessable_entity: 'Unprocessable entity'
         locked: 'Locked'
         sign_in:
-          unexistent: 'Email address does not belongs to a registered account'
-          bad_credentials: 'User email and/or password is incorrect'
-          unconfirmed: 'User account has not been confirmed'
+          not_found: 'Email address does not belongs to a registered account'
+          not_active: 'User account has not been confirmed'
+          unauthorized: 'User email and/or password is incorrect'
           locked: 'User account has been locked'
         refresh_token:
-          invalid: 'Invalid token'
+          not_found: 'Invalid token'
         unlock:
           not_found: 'Email address does not belongs to a registered account'
           method_not_allowed: 'User account has not been locked'
@@ -168,6 +168,10 @@ en:
     errors:
       models:
         morpho/user/contract/unlock:
+          attributes:
+            email:
+              invalid_email_address: 'invalid'
+        morpho/user/contract/sign_in:
           attributes:
             email:
               invalid_email_address: 'invalid'

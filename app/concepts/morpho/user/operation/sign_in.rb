@@ -1,7 +1,7 @@
 module Morpho
   class User::Operation::SignIn < Trailblazer::Operation
     step :validate
-    fail :not_valid, fail_fast: true
+    fail :unprocessable_entity, fail_fast: true
     step :find
     fail :not_found, fail_fast: true
     step :check_active
@@ -9,7 +9,7 @@ module Morpho
     step :check_unlocked
     fail :locked, fail_fast: true
     step :check_password
-    fail :wrong_password, fail_fast: true
+    fail :unauthorized, fail_fast: true
     step :generate_refresh_token
     step :register_last_login_activity
     step :authentication_token
@@ -43,8 +43,8 @@ module Morpho
       options['model'].register_last_login_activity!(options['ip'])
     end
 
-    def not_valid (options, **)
-      options['error'] = :not_valid
+    def unprocessable_entity (options, **)
+      options['error'] = :unprocessable_entity
     end
 
     def not_found (options, **)
@@ -59,9 +59,9 @@ module Morpho
       options['error'] = :locked
     end
 
-    def wrong_password (options, **)
+    def unauthorized (options, **)
       options['model'].register_failed_login!
-      options['error'] = :wrong_password
+      options['error'] = :unauthorized
     end
 
     def authentication_token (options, **)
