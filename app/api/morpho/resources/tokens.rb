@@ -29,7 +29,7 @@ module Morpho
             when :not_found
               render_not_found({ base: I18n.t('morpho.api.messages.sign_in.not_found') })
             when :forbidden
-              render_forbidden({ base: I18n.t('morpho.api.messages.sign_in.not_active') })
+              render_forbidden({ base: I18n.t('morpho.api.messages.sign_in.forbidden') })
             when :locked
               render_locked({ base: I18n.t('morpho.api.messages.sign_in.locked') })
             when :unauthorized
