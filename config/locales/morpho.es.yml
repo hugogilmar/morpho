@@ -172,6 +172,10 @@ es:
           attributes:
             email:
               invalid_email_address: 'no es válido'
+        morpho/user/contract/external_sign_in:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'
         morpho/user/contract/sign_in:
           attributes:
             email:
