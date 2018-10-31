@@ -138,15 +138,19 @@ es:
         method_not_allowed: 'Método no permitido'
         unprocessable_entity: 'Entidad no procesable'
         locked: 'Bloqueado'
+        activate:
+          not_found: 'Correo electrónico no pertenece a un usuario registrado'
+          method_not_allowed: 'Cuenta de usuario ya ha sido confirmada'
         sign_in:
-          unexistent: 'Correo electrónico no pertenece a un usuario registrado'
-          bad_credentials: 'Correo electrónico y/o contraseña es incorrecto(a)'
-          unconfirmed: 'Cuenta de usuario no ha sido confirmada'
+          not_found: 'Correo electrónico no pertenece a un usuario registrado'
+          forbidden: 'Cuenta de usuario no ha sido confirmada'
+          unauthorized: 'Correo electrónico y/o contraseña es incorrecto(a)'
           locked: 'Cuenta de usuario ha sido bloqueada'
         refresh_token:
-          invalid: 'El token es inválido'
-        provider:
-          unregistered: 'No se ha podido registrar a el proveedor'
+          not_found: 'El token es inválido'
+        unlock:
+          not_found: 'Correo electrónico no pertenece a un usuario registrado'
+          method_not_allowed: 'Cuenta de usuario no ha sido bloqueada'
   simple_form:
     'yes': 'Si'
     'no': 'No'
@@ -161,3 +165,26 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmar la contraseña'
         remember_me: 'Recuérdame'
+  activemodel:
+    errors:
+      models:
+        morpho/user/contract/activate:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'
+        morpho/user/contract/external_sign_in:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'
+        morpho/user/contract/sign_in:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'
+        morpho/user/contract/sign_up:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'
+        morpho/user/contract/unlock:
+          attributes:
+            email:
+              invalid_email_address: 'no es válido'

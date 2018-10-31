@@ -1,7 +1,7 @@
 module Morpho
   class User::Operation::RefreshToken < Trailblazer::Operation
     step :validate
-    fail :not_valid, fail_fast: true
+    fail :unprocessable_entity, fail_fast: true
     step :find
     fail :not_found, fail_fast: true
     step :generate_refresh_token
@@ -20,8 +20,8 @@ module Morpho
       options['model'].generate_refresh_token!
     end
 
-    def not_valid (options, **)
-      options['error'] = :not_valid
+    def unprocessable_entity (options, **)
+      options['error'] = :unprocessable_entity
     end
 
     def not_found (options, **)

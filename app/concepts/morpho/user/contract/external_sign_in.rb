@@ -1,5 +1,3 @@
-require 'reform/form/validation/unique_validator'
-
 module Morpho
   class User::Contract::ExternalSignIn < Reform::Form
     include Reform::Form::ActiveRecord

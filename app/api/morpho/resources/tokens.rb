@@ -1,8 +1,7 @@
 module Morpho
   module Resources
     class Tokens < ::Grape::API
-      helpers Morpho::Helpers::HTTPResponses,
-        Morpho::Helpers::JWTUtils
+      helpers Morpho::Helpers::HTTPResponses
 
       namespace :tokens do
         desc 'Request user authentication token' do
@@ -25,16 +24,16 @@ module Morpho
             present result['token'], with: Morpho::Entities::AuthenticationToken
           else
             case result['error']
-            when :not_valid
+            when :unprocessable_entity
               render_unprocessable_entity(result['contract'].errors)
             when :not_found
-              render_not_found([I18n.t('morpho.api.messages.sign_in.unexistent')])
-            when :not_active
-              render_forbidden([I18n.t('morpho.api.messages.sign_in.unconfirmed')])
+              render_not_found({ base: I18n.t('morpho.api.messages.sign_in.not_found') })
+            when :forbidden
+              render_forbidden({ base: I18n.t('morpho.api.messages.sign_in.not_active') })
             when :locked
-              render_locked([I18n.t('morpho.api.messages.sign_in.locked')])
-            when :wrong_password
-              render_unauthorized([I18n.t('morpho.api.messages.sign_in.bad_credentials')])
+              render_locked({ base: I18n.t('morpho.api.messages.sign_in.locked') })
+            when :unauthorized
+              render_unauthorized({ base: I18n.t('morpho.api.messages.sign_in.unauthorized') })
             else
               render_unprocessable_entity
             end
@@ -58,10 +57,10 @@ module Morpho
             present result['token'], with: Morpho::Entities::AuthenticationToken
           else
             case result['error']
-            when :not_valid
+            when :unprocessable_entity
               render_unprocessable_entity(result['contract'].errors)
             when :not_found
-              render_not_found([I18n.t('morpho.api.messages.refresh_token.invalid')])
+              render_not_found({ base: I18n.t('morpho.api.messages.refresh_token.not_found') })
             else
               render_unprocessable_entity
             end

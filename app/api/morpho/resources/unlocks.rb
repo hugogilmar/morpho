@@ -22,14 +22,12 @@ module Morpho
             present result['model'], with: Morpho::Entities::User
           else
             case result['error']
-            when :not_valid
+            when :unprocessable_entity
               render_unprocessable_entity(result['contract'].errors)
             when :not_found
-              render_not_found
-            when :not_allowed
-              render_method_not_allowed
-            when :not_delivered
-              render_unprocessable_entity
+              render_not_found({ base: I18n.t('morpho.api.messages.unlock.not_found') })
+            when :method_not_allowed
+              render_method_not_allowed({ base: I18n.t('morpho.api.messages.unlock.method_not_allowed') })
             else
               render_unprocessable_entity
             end

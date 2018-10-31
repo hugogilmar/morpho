@@ -16,9 +16,7 @@ module Morpho
     initializer 'morpho.configurations', after: :load_config_initializers do |app|
       mailer = ActionMailer::Base
       mailer.delivery_method = Morpho.config.mailer.delivery_method
-                                     .to_s.to_sym
-      mailer.perform_deliveries = Morpho.config.mailer
-                                        .perform_deliveries
+      mailer.perform_deliveries = Morpho.config.mailer.perform_deliveries
 
       mailer.default_options = {
         from: Morpho.config.mailer.from
