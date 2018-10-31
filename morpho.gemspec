@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'reform-rails', '~> 0.1'
   s.add_dependency 'trailblazer-operation', '~> 0.4'
 
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'sqlite3', '> 0'
+  s.add_development_dependency 'rubocop', '> 0'
+  s.add_development_dependency 'simplecov', '> 0'
 end
