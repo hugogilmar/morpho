@@ -138,6 +138,9 @@ en:
         method_not_allowed: 'Method not allowed'
         unprocessable_entity: 'Unprocessable entity'
         locked: 'Locked'
+        activate:
+          not_found: 'Email address does not belongs to a registered account'
+          method_not_allowed: 'User account has already been confirmed'
         sign_in:
           not_found: 'Email address does not belongs to a registered account'
           forbidden: 'User account has not been confirmed'
@@ -167,11 +170,19 @@ en:
   activemodel:
     errors:
       models:
-        morpho/user/contract/unlock:
+        morpho/user/contract/activate:
           attributes:
             email:
               invalid_email_address: 'invalid'
         morpho/user/contract/sign_in:
+          attributes:
+            email:
+              invalid_email_address: 'invalid'
+        morpho/user/contract/sign_up:
+          attributes:
+            email:
+              invalid_email_address: 'invalid'
+        morpho/user/contract/unlock:
           attributes:
             email:
               invalid_email_address: 'invalid'

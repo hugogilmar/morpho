@@ -1,13 +1,12 @@
 module Morpho
   class User::Operation::Activate < Trailblazer::Operation
     step :validate
-    fail :not_valid, fail_fast: true
+    fail :unprocessable_entity, fail_fast: true
     step :find
     fail :not_found, fail_fast: true
     step :check
-    fail :not_allowed, fail_fast: true
-    step :activation_email
-    fail :not_delivered, fail_fast: true
+    fail :method_not_allowed, fail_fast: true
+    pass :activation_email
 
     def validate (options, **)
       options['contract'] = Morpho::User::Contract::Activate.new(OpenStruct.new)
@@ -26,20 +25,16 @@ module Morpho
       options['model'].resend_activation_needed_email!
     end
 
-    def not_valid (options, **)
-      options['error'] = :not_valid
+    def unprocessable_entity (options, **)
+      options['error'] = :unprocessable_entity
     end
 
     def not_found (options, **)
       options['error'] = :not_found
     end
 
-    def not_allowed (options, **)
-      options['error'] = :not_allowed
-    end
-
-    def not_delivered (options, **)
-      options['error'] = :not_delivered
+    def method_not_allowed (options, **)
+      options['error'] = :method_not_allowed
     end
   end
 end
