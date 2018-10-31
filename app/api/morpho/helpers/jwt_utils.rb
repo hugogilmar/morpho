@@ -18,13 +18,13 @@ module Morpho
       end
 
       def authentication_token
-        @authentication_token ||= Morpho::JWT::AuthenticationToken.new(request)
+        @authentication_token ||= ::Morpho::JWT::AuthenticationToken.new(request)
       rescue
         nil
       end
 
       def token
-        @token ||= Morpho::JWT::Token.new(authentication_token)
+        @token ||= ::Morpho::JWT::Token.new(authentication_token)
       rescue
         nil
       end

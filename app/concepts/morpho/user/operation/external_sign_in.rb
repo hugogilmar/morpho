@@ -64,7 +64,7 @@ module Morpho
     end
 
     def authentication_token (options, **)
-      options['token'] = Morpho::JWT::Payload.new(options['user.model'])
+      options['token'] = ::Morpho::JWT::Payload.new(options['user.model'])
     end
   end
 end
