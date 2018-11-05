@@ -4,6 +4,20 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+### [1.1.2] - 2018-10-31
+
+### Added
+
+- Password validations for user sign up contract
+
+### Changed
+
+- Coding standars for properties and validates on entity classes
+
+### Fixed
+
+- Uninitialized constant error for JWT module
+
 ## [1.1.1] - 2018-10-31
 
 ### Changed

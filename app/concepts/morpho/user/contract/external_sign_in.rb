@@ -3,10 +3,10 @@ module Morpho
     include Reform::Form::ActiveRecord
 
     property :email
-    validates :email, presence: true, email_format: true
-    property :uid
-    validates :uid, presence: true
     property :provider
+    property :uid
+    validates :email, presence: true, email_format: true
     validates :provider, presence: true
+    validates :uid, presence: true
   end
 end
