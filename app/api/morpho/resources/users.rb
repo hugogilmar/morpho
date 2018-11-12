@@ -5,6 +5,7 @@ module Morpho
 
       namespace :users do
         desc 'User registration' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
             [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]

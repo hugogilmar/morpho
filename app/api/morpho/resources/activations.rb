@@ -5,6 +5,7 @@ module Morpho
 
       namespace :activations do
         desc 'Request user activation token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
             [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],

@@ -5,6 +5,7 @@ module Morpho
 
       namespace :hello do
         desc 'Request hello message' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::Message)
         end
         get :public do
@@ -19,6 +20,7 @@ module Morpho
           end
 
           desc 'Request hello message' do
+            detail ''
             success Morpho::Grape::DataWrapper.new(Morpho::Entities::Message)
             failure [
               [ 401, I18n.t('morpho.api.messages.unauthorized'), Morpho::Entities::Error ]

@@ -5,6 +5,7 @@ module Morpho
 
       namespace :passwords do
         desc 'Request user reset password token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
             [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],

@@ -5,6 +5,7 @@ module Morpho
 
       namespace :unlocks do
         desc 'Request user unlock token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::UserEmail)
           failure [
             [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],

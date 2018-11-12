@@ -5,6 +5,7 @@ module Morpho
 
       namespace :tokens do
         desc 'Request user authentication token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
           failure [
             [ 401, I18n.t('morpho.api.messages.unauthorized'), Morpho::Entities::Error ],
@@ -41,6 +42,7 @@ module Morpho
         end
 
         desc 'Refresh user authentication token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
           failure [
             [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
