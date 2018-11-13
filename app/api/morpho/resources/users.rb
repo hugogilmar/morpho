@@ -5,9 +5,10 @@ module Morpho
 
       namespace :users do
         desc 'User registration' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
-            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
+            [ 422, I18n.t('morpho.api.messages.general.422'), Morpho::Entities::Error ]
           ]
         end
         params do
@@ -18,15 +19,6 @@ module Morpho
 
           if result.success?
             present result['model'], with: Morpho::Entities::User
-          else
-            case result['error']
-            when :not_valid
-              render_unprocessable_entity(result['contract'].errors)
-            when :not_saved
-              render_unprocessable_entity(result['model'].errors)
-            else
-              render_unprocessable_entity
-            end
           end
         end
       end

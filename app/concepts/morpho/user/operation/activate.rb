@@ -1,40 +1,42 @@
 module Morpho
   class User::Operation::Activate < Trailblazer::Operation
-    step :validate
-    fail :unprocessable_entity, fail_fast: true
-    step :find
-    fail :not_found, fail_fast: true
-    step :check
-    fail :method_not_allowed, fail_fast: true
-    pass :activation_email
+    pass :validate!
+    pass :find!
+    pass :check!
+    pass :activation_email!
 
-    def validate (options, **)
+    def validate!(options, **)
       options['contract'] = Morpho::User::Contract::Activate.new(OpenStruct.new)
-      options['contract'].validate(options['data'])
+
+      unless options['contract'].validate(options['data'])
+        raise Morpho::Exceptions::StandardError.new(
+          errors: options['contract'].errors
+        )
+      end
     end
 
-    def find (options, **)
+    def find!(options, **)
       options['model'] = Morpho::User.find_by(email: options['data']['email'])
+
+      if options['model'].nil?
+        raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.activate.email_not_exists'),
+          status: 404
+        )
+      end
     end
 
-    def check (options, **)
-      !options['model'].active?
+    def check!(options, **)
+      if options['model'].active?
+        raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.activate.account_already_confirmed'),
+          status: 405
+        )
+      end
     end
 
-    def activation_email (options, **)
+    def activation_email!(options, **)
       options['model'].resend_activation_needed_email!
-    end
-
-    def unprocessable_entity (options, **)
-      options['error'] = :unprocessable_entity
-    end
-
-    def not_found (options, **)
-      options['error'] = :not_found
-    end
-
-    def method_not_allowed (options, **)
-      options['error'] = :method_not_allowed
     end
   end
 end

@@ -4,6 +4,17 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+### [1.2.0] - 2018-11-13
+
+### Added
+
+- `StandardError` exception and formatter added
+
+### Changed
+
+- Refactor error responses and helpers to use `StandardError` exception
+- Refactor operations flow to raise a `StandardError` exception for error handling
+
 ### [1.1.2] - 2018-10-31
 
 ### Added
