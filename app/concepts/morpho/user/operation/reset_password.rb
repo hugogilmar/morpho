@@ -1,49 +1,40 @@
 module Morpho
   class User::Operation::ResetPassword < Trailblazer::Operation
-    step :validate
-    fail :not_valid, fail_fast: true
-    step :find
-    fail :not_found, fail_fast: true
-    step :check
-    fail :not_allowed, fail_fast: true
-    step :reset_password_email
-    fail :not_delivered, fail_fast: true
+    pass :validate!
+    pass :find!
+    pass :check!
+    pass :reset_password_email!
 
-    def validate (options, **)
+    def validate!(options, **)
       options['contract'] = Morpho::User::Contract::ResetPassword.new(OpenStruct.new)
-      options['contract'].validate(options['data'])
+
+      unless options['contract'].validate(options['data'])
+        raise Morpho::Exceptions::StandardError.new(
+          errors: options['contract'].errors
+        )
+      end
     end
 
-    def find (options, **)
+    def find!(options, **)
       options['model'] = Morpho::User.find_by(email: options['data']['email'])
+
+      if options['model'].nil?
+        raise Morpho::Exceptions::StandardError.new(
+          status: 404
+        )
+      end
     end
 
-    def check (options, **)
-      !options['model'].external?
+    def check!(options, **)
+      if options['model'].external?
+        raise Morpho::Exceptions::StandardError.new(
+          status: 405
+        )
+      end
     end
 
-    def reset_password_email (options, **)
+    def reset_password_email!(options, **)
       options['model'].deliver_reset_password_instructions!
-    end
-
-    def not_valid (options, **)
-      options['error'] = :not_valid
-    end
-
-    def not_found (options, **)
-      options['error'] = :not_found
-    end
-
-    def not_allowed (options, **)
-      options['error'] = :not_allowed
-    end
-
-    def not_delivered (options, **)
-      options['error'] = :not_delivered
-    end
-
-    def render (options, **)
-      options['model']
     end
   end
 end

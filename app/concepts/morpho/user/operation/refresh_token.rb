@@ -1,34 +1,35 @@
 module Morpho
   class User::Operation::RefreshToken < Trailblazer::Operation
-    step :validate
-    fail :unprocessable_entity, fail_fast: true
-    step :find
-    fail :not_found, fail_fast: true
-    step :generate_refresh_token
-    step :authentication_token
+    pass :validate!
+    pass :find!
+    pass :generate_refresh_token!
+    pass :authentication_token!
 
-    def validate (options, **)
+    def validate!(options, **)
       options['contract'] = Morpho::User::Contract::RefreshToken.new(OpenStruct.new)
-      options['contract'].validate(options['data'])
+
+      unless options['contract'].validate(options['data'])
+        raise Morpho::Exceptions::StandardError.new(
+          errors: options['contract'].errors
+        )
+      end
     end
 
-    def find (options, **)
+    def find!(options, **)
       options['model'] = Morpho::User.find_by(refresh_token: options['data']['refresh_token'])
+
+      if options['model'].nil?
+        raise Morpho::Exceptions::StandardError.new(
+          status: 404
+        )
+      end
     end
 
-    def generate_refresh_token (options, **)
+    def generate_refresh_token!(options, **)
       options['model'].generate_refresh_token!
     end
 
-    def unprocessable_entity (options, **)
-      options['error'] = :unprocessable_entity
-    end
-
-    def not_found (options, **)
-      options['error'] = :not_found
-    end
-
-    def authentication_token (options, **)
+    def authentication_token!(options, **)
       options['token'] = ::Morpho::JWT::Payload.new(options['model'])
     end
   end
