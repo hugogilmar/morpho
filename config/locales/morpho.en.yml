@@ -130,27 +130,28 @@ en:
 
     api:
       messages:
-        bad_request: 'Bad request'
-        unauthorized: 'Unauthorized'
-        payment_required: 'Payment required'
-        forbidden: 'Forbidden'
-        not_found: 'Not found'
-        method_not_allowed: 'Method not allowed'
-        unprocessable_entity: 'Unprocessable entity'
-        locked: 'Locked'
+        general:
+          "400": 'Bad request'
+          "401": 'Unauthorized'
+          "402": 'Payment required'
+          "403": 'Forbidden'
+          "404": 'Not found'
+          "405": 'Method not allowed'
+          "422": 'Unprocessable entity'
+          "423": 'Locked'
         activate:
-          not_found: 'Email address does not belongs to a registered account'
-          method_not_allowed: 'User account has already been confirmed'
+          email_not_exists: 'Email address does not belongs to a registered account'
+          account_already_confirmed: 'User account has already been confirmed'
         sign_in:
-          not_found: 'Email address does not belongs to a registered account'
-          forbidden: 'User account has not been confirmed'
-          unauthorized: 'User email and/or password is incorrect'
-          locked: 'User account has been locked'
+          email_not_exists: 'Email address does not belongs to a registered account'
+          account_not_confirmed: 'User account has not been confirmed'
+          account_locked: 'User account has been locked'
+          bad_credentials: 'User email and/or password is incorrect'
         refresh_token:
-          not_found: 'Invalid token'
+          invalid: 'Invalid token'
         unlock:
-          not_found: 'Email address does not belongs to a registered account'
-          method_not_allowed: 'User account has not been locked'
+          email_not_exists: 'Email address does not belongs to a registered account'
+          account_not_locked: 'User account has not been locked'
   simple_form:
     'yes': 'Yes'
     'no': 'No'

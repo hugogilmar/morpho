@@ -130,27 +130,28 @@ es:
 
     api:
       messages:
-        bad_request: 'Solicitud incorrecta'
-        unauthorized: 'No autorizado'
-        payment_required: 'Pago requerido'
-        forbidden: 'Prohibido'
-        not_found: 'No encontrado'
-        method_not_allowed: 'Método no permitido'
-        unprocessable_entity: 'Entidad no procesable'
-        locked: 'Bloqueado'
+        general:
+          "400": 'Solicitud incorrecta'
+          "401": 'No autorizado'
+          "402": 'Pago requerido'
+          "403": 'Prohibido'
+          "404": 'No encontrado'
+          "405": 'Método no permitido'
+          "422": 'Entidad no procesable'
+          "423": 'Bloqueado'
         activate:
-          not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          method_not_allowed: 'Cuenta de usuario ya ha sido confirmada'
+          email_not_exists: 'Correo electrónico no pertenece a un usuario registrado'
+          account_already_confirmed: 'Cuenta de usuario ya ha sido confirmada'
         sign_in:
-          not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          forbidden: 'Cuenta de usuario no ha sido confirmada'
-          unauthorized: 'Correo electrónico y/o contraseña es incorrecto(a)'
-          locked: 'Cuenta de usuario ha sido bloqueada'
+          email_not_exists: 'Correo electrónico no pertenece a un usuario registrado'
+          account_not_confirmed: 'Cuenta de usuario no ha sido confirmada'
+          account_locked: 'Cuenta de usuario ha sido bloqueada'
+          bad_credentials: 'Correo electrónico y/o contraseña es incorrecto(a)'
         refresh_token:
-          not_found: 'El token es inválido'
+          invalid: 'El token es inválido'
         unlock:
-          not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          method_not_allowed: 'Cuenta de usuario no ha sido bloqueada'
+          email_not_exists: 'Correo electrónico no pertenece a un usuario registrado'
+          account_not_locked: 'Cuenta de usuario no ha sido bloqueada'
   simple_form:
     'yes': 'Si'
     'no': 'No'

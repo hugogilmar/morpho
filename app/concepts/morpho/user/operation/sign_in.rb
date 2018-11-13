@@ -1,70 +1,72 @@
 module Morpho
   class User::Operation::SignIn < Trailblazer::Operation
-    step :validate
-    fail :unprocessable_entity, fail_fast: true
-    step :find
-    fail :not_found, fail_fast: true
-    step :check_active
-    fail :forbidden, fail_fast: true
-    step :check_unlocked
-    fail :locked, fail_fast: true
-    step :check_password
-    fail :unauthorized, fail_fast: true
-    step :generate_refresh_token
-    step :register_last_login_activity
-    step :authentication_token
+    pass :validate!
+    pass :find!
+    pass :check_active!
+    pass :check_unlocked!
+    pass :check_password!
+    pass :generate_refresh_token!
+    pass :register_last_login_activity!
+    pass :authentication_token!
 
-    def validate (options, **)
+    def validate!(options, **)
       options['contract'] = Morpho::User::Contract::SignIn.new(OpenStruct.new)
-      options['contract'].validate(options['data'])
+
+      unless options['contract'].validate(options['data'])
+        raise Morpho::Exceptions::StandardError.new(
+          errors: options['contract'].errors
+        )
+      end
     end
 
-    def find (options, **)
+    def find!(options, **)
       options['model'] = Morpho::User.find_by(email: options['data']['email'])
+
+      if options['model'].nil?
+        raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.email_not_exists'),
+          status: 404
+        )
+      end
     end
 
-    def check_active (options, **)
-      options['model'].active?
+    def check_active!(options, **)
+      unless options['model'].active?
+        raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.account_not_confirmed'),
+          status: 403
+        )
+      end
     end
 
-    def check_unlocked (options, **)
-      options['model'].unlocked?
+    def check_unlocked!(options, **)
+      unless options['model'].unlocked?
+        raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.account_locked'),
+          status: 423
+        )
+      end
     end
 
-    def check_password (options, **)
-      options['model'].valid_password?(options['data']['password'])
+    def check_password!(options, **)
+      unless options['model'].valid_password?(options['data']['password'])
+        options['model'].register_failed_login!
+        raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.bad_credentials'),
+          status: 401
+        )
+      end
     end
 
-    def generate_refresh_token (options, **)
+    def generate_refresh_token!(options, **)
       options['model'].generate_refresh_token!
     end
 
-    def register_last_login_activity (options, **)
+    def register_last_login_activity!(options, **)
       options['model'].register_last_login_activity!(options['ip'])
     end
 
-    def unprocessable_entity (options, **)
-      options['error'] = :unprocessable_entity
-    end
-
-    def not_found (options, **)
-      options['error'] = :not_found
-    end
-
-    def forbidden (options, **)
-      options['error'] = :forbidden
-    end
-
-    def locked (options, **)
-      options['error'] = :locked
-    end
-
-    def unauthorized (options, **)
-      options['model'].register_failed_login!
-      options['error'] = :unauthorized
-    end
-
-    def authentication_token (options, **)
+    def authentication_token!(options, **)
       options['token'] = ::Morpho::JWT::Payload.new(options['model'])
     end
   end

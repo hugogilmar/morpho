@@ -5,13 +5,14 @@ module Morpho
 
       namespace :tokens do
         desc 'Request user authentication token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
           failure [
-            [ 401, I18n.t('morpho.api.messages.unauthorized'), Morpho::Entities::Error ],
-            [ 403, I18n.t('morpho.api.messages.forbidden'), Morpho::Entities::Error ],
-            [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
-            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ],
-            [ 423, I18n.t('morpho.api.messages.locked'), Morpho::Entities::Error ]
+            [ 401, I18n.t('morpho.api.messages.general.401'), Morpho::Entities::Error ],
+            [ 403, I18n.t('morpho.api.messages.general.403'), Morpho::Entities::Error ],
+            [ 404, I18n.t('morpho.api.messages.general.404'), Morpho::Entities::Error ],
+            [ 422, I18n.t('morpho.api.messages.general.422'), Morpho::Entities::Error ],
+            [ 423, I18n.t('morpho.api.messages.general.423'), Morpho::Entities::Error ]
           ]
         end
         params do
@@ -22,29 +23,15 @@ module Morpho
 
           if result.success?
             present result['token'], with: Morpho::Entities::AuthenticationToken
-          else
-            case result['error']
-            when :unprocessable_entity
-              render_unprocessable_entity(result['contract'].errors)
-            when :not_found
-              render_not_found({ base: I18n.t('morpho.api.messages.sign_in.not_found') })
-            when :forbidden
-              render_forbidden({ base: I18n.t('morpho.api.messages.sign_in.forbidden') })
-            when :locked
-              render_locked({ base: I18n.t('morpho.api.messages.sign_in.locked') })
-            when :unauthorized
-              render_unauthorized({ base: I18n.t('morpho.api.messages.sign_in.unauthorized') })
-            else
-              render_unprocessable_entity
-            end
           end
         end
 
         desc 'Refresh user authentication token' do
+          detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::AuthenticationToken)
           failure [
-            [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
-            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
+            [ 404, I18n.t('morpho.api.messages.general.404'), Morpho::Entities::Error ],
+            [ 422, I18n.t('morpho.api.messages.general.422'), Morpho::Entities::Error ]
           ]
         end
         params do
@@ -55,15 +42,6 @@ module Morpho
 
           if result.success?
             present result['token'], with: Morpho::Entities::AuthenticationToken
-          else
-            case result['error']
-            when :unprocessable_entity
-              render_unprocessable_entity(result['contract'].errors)
-            when :not_found
-              render_not_found({ base: I18n.t('morpho.api.messages.refresh_token.not_found') })
-            else
-              render_unprocessable_entity
-            end
           end
         end
       end
