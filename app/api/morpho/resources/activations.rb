@@ -8,9 +8,9 @@ module Morpho
           detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
-            [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
-            [ 405, I18n.t('morpho.api.messages.method_not_allowed'), Morpho::Entities::Error ],
-            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
+            [ 404, I18n.t('morpho.api.messages.general.404'), Morpho::Entities::Error ],
+            [ 405, I18n.t('morpho.api.messages.general.405'), Morpho::Entities::Error ],
+            [ 422, I18n.t('morpho.api.messages.general.422'), Morpho::Entities::Error ]
           ]
         end
         params do
@@ -21,17 +21,6 @@ module Morpho
 
           if result.success?
             present result['model'], with: Morpho::Entities::User
-          else
-            case result['error']
-            when :unprocessable_entity
-              render_unprocessable_entity(result['contract'].errors)
-            when :not_found
-              render_not_found({ base: I18n.t('morpho.api.messages.activate.not_found') })
-            when :method_not_allowed
-              render_method_not_allowed({ base: I18n.t('morpho.api.messages.activate.method_not_allowed') })
-            else
-              render_unprocessable_entity
-            end
           end
         end
       end
