@@ -1,36 +1,32 @@
 module Morpho
   class User::Operation::SignUp < Trailblazer::Operation
-    step :validate
-    fail :not_valid, fail_fast: true
-    step :sync
-    fail :not_synced, fail_fast: true
-    step :save
-    fail :not_saved, fail_fast: true
+    pass :validate!
+    pass :sync!
+    pass :save!
 
-    def validate(options, **)
+    def validate!(options, **)
       options['contract'] = Morpho::User::Contract::SignUp.new(Morpho::User.new)
-      options['contract'].validate(options['data'])
+
+      unless options['contract'].validate(options['data'])
+        raise Morpho::Exceptions::StandardError.new(
+          errors: options['contract'].errors
+        )
+      end
     end
 
-    def sync(options, **)
+    def sync!(options, **)
       options['contract'].sync
     end
 
-    def save (options, **)
+    def save!(options, **)
       options['model'] = options['contract'].model
       options['model'].save
-    end
 
-    def not_valid(options, **)
-      options['error'] = :not_valid
-    end
-
-    def not_synced(options, **)
-      options['error'] = :not_synced
-    end
-
-    def not_saved(options, **)
-      options['error'] = :not_saved
+      unless options['model'].persisted?
+        raise Morpho::Exceptions::StandardError.new(
+          errors: options['model'].errors
+        )
+      end
     end
   end
 end

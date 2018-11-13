@@ -10,6 +10,10 @@ module Morpho
       self.activation_state == 'active'
     end
 
+    def inactive?
+      self.activation_state == 'pending'
+    end
+
     def unlocked?
       !self.login_locked?
     end

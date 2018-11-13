@@ -130,27 +130,29 @@ es:
 
     api:
       messages:
-        bad_request: 'Solicitud incorrecta'
-        unauthorized: 'No autorizado'
-        payment_required: 'Pago requerido'
-        forbidden: 'Prohibido'
-        not_found: 'No encontrado'
-        method_not_allowed: 'Método no permitido'
-        unprocessable_entity: 'Entidad no procesable'
-        locked: 'Bloqueado'
-        activate:
-          not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          method_not_allowed: 'Cuenta de usuario ya ha sido confirmada'
-        sign_in:
-          not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          forbidden: 'Cuenta de usuario no ha sido confirmada'
-          unauthorized: 'Correo electrónico y/o contraseña es incorrecto(a)'
-          locked: 'Cuenta de usuario ha sido bloqueada'
-        refresh_token:
-          not_found: 'El token es inválido'
-        unlock:
-          not_found: 'Correo electrónico no pertenece a un usuario registrado'
-          method_not_allowed: 'Cuenta de usuario no ha sido bloqueada'
+        general:
+          "400": 'Solicitud incorrecta'
+          "401": 'No autorizado'
+          "402": 'Pago requerido'
+          "403": 'Prohibido'
+          "404": 'No encontrado'
+          "405": 'Método no permitido'
+          "422": 'Entidad no procesable'
+          "423": 'Bloqueado'
+        detailed:
+          activate:
+            not_found: 'Correo electrónico no pertenece a un usuario registrado'
+            method_not_allowed: 'Cuenta de usuario ya ha sido confirmada'
+          sign_in:
+            not_found: 'Correo electrónico no pertenece a un usuario registrado'
+            forbidden: 'Cuenta de usuario no ha sido confirmada'
+            unauthorized: 'Correo electrónico y/o contraseña es incorrecto(a)'
+            locked: 'Cuenta de usuario ha sido bloqueada'
+          refresh_token:
+            not_found: 'El token es inválido'
+          unlock:
+            not_found: 'Correo electrónico no pertenece a un usuario registrado'
+            method_not_allowed: 'Cuenta de usuario no ha sido bloqueada'
   simple_form:
     'yes': 'Si'
     'no': 'No'
