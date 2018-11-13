@@ -23,7 +23,7 @@ module Morpho
             detail ''
             success Morpho::Grape::DataWrapper.new(Morpho::Entities::Message)
             failure [
-              [ 401, I18n.t('morpho.api.messages.unauthorized'), Morpho::Entities::Error ]
+              [ 401, I18n.t('morpho.api.messages.general.401'), Morpho::Entities::Error ]
             ]
           end
           get :private do

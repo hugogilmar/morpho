@@ -1,7 +1,12 @@
 module Morpho
   class API < ::Grape::API
     format :json
-    rescue_from :all
+
+    rescue_from Morpho::Exceptions::GeneralError, Morpho::Exceptions::EntityError  do |e|
+      error!({ errors: e.present }, e.status_code)
+    end
+
+    # rescue_from :all
 
     mount Morpho::Resources::Users
     mount Morpho::Resources::Externals

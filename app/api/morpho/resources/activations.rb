@@ -8,9 +8,9 @@ module Morpho
           detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
-            [ 404, I18n.t('morpho.api.messages.not_found'), Morpho::Entities::Error ],
-            [ 405, I18n.t('morpho.api.messages.method_not_allowed'), Morpho::Entities::Error ],
-            [ 422, I18n.t('morpho.api.messages.unprocessable_entity'), Morpho::Entities::Error ]
+            [ 404, I18n.t('morpho.api.messages.general.404'), Morpho::Entities::Error ],
+            [ 405, I18n.t('morpho.api.messages.general.405'), Morpho::Entities::Error ],
+            [ 422, I18n.t('morpho.api.messages.general.422'), Morpho::Entities::Error ]
           ]
         end
         params do
