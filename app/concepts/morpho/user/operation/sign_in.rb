@@ -24,6 +24,7 @@ module Morpho
 
       if options['model'].nil?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.email_not_exists'),
           status: 404
         )
       end
@@ -32,6 +33,7 @@ module Morpho
     def check_active!(options, **)
       unless options['model'].active?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.account_not_confirmed'),
           status: 403
         )
       end
@@ -40,6 +42,7 @@ module Morpho
     def check_unlocked!(options, **)
       unless options['model'].unlocked?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.account_locked'),
           status: 423
         )
       end
@@ -49,6 +52,7 @@ module Morpho
       unless options['model'].valid_password?(options['data']['password'])
         options['model'].register_failed_login!
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.sign_in.bad_credentials'),
           status: 401
         )
       end

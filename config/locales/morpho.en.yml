@@ -139,20 +139,19 @@ en:
           "405": 'Method not allowed'
           "422": 'Unprocessable entity'
           "423": 'Locked'
-        detailed:
-          activate:
-            not_found: 'Email address does not belongs to a registered account'
-            method_not_allowed: 'User account has already been confirmed'
-          sign_in:
-            not_found: 'Email address does not belongs to a registered account'
-            forbidden: 'User account has not been confirmed'
-            unauthorized: 'User email and/or password is incorrect'
-            locked: 'User account has been locked'
-          refresh_token:
-            not_found: 'Invalid token'
-          unlock:
-            not_found: 'Email address does not belongs to a registered account'
-            method_not_allowed: 'User account has not been locked'
+        activate:
+          email_not_exists: 'Email address does not belongs to a registered account'
+          account_already_confirmed: 'User account has already been confirmed'
+        sign_in:
+          email_not_exists: 'Email address does not belongs to a registered account'
+          account_not_confirmed: 'User account has not been confirmed'
+          account_locked: 'User account has been locked'
+          bad_credentials: 'User email and/or password is incorrect'
+        refresh_token:
+          invalid: 'Invalid token'
+        unlock:
+          email_not_exists: 'Email address does not belongs to a registered account'
+          account_not_locked: 'User account has not been locked'
   simple_form:
     'yes': 'Yes'
     'no': 'No'

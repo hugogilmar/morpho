@@ -20,6 +20,7 @@ module Morpho
 
       if options['model'].nil?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.refresh_token.invalid'),
           status: 404
         )
       end
