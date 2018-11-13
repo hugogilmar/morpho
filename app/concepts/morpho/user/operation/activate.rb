@@ -20,6 +20,7 @@ module Morpho
 
       if options['model'].nil?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.activate.email_not_exists'),
           status: 404
         )
       end
@@ -28,6 +29,7 @@ module Morpho
     def check!(options, **)
       if options['model'].active?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.activate.account_already_confirmed'),
           status: 405
         )
       end

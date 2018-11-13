@@ -20,6 +20,7 @@ module Morpho
 
       if options['model'].nil?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.unlock.email_not_exists'),
           status: 404
         )
       end
@@ -28,6 +29,7 @@ module Morpho
     def check!(options, **)
       unless options['model'].login_locked?
         raise Morpho::Exceptions::StandardError.new(
+          message: I18n.t('morpho.api.messages.unlock.account_not_locked'),
           status: 405
         )
       end
