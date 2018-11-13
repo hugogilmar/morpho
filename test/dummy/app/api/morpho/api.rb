@@ -27,7 +27,9 @@ module Morpho
     })
 
     route :any, '*path' do
-      error!({ message: I18n.t('morpho.api.messages.not_found') }, 404)
+      raise Morpho::Exceptions::StandardError.new(
+        status: 404
+      )
     end
   end
 end

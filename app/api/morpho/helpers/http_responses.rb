@@ -3,76 +3,52 @@ module Morpho
     module HTTPResponses
       protected
 
-      def render_bad_request(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.bad_request'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 400)
+      def render_bad_request
+        raise Morpho::Exceptions::StandardError.new(
+          status: 400
+        )
       end
 
-      def render_unauthorized(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.unauthorized'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 401)
+      def render_unauthorized
+        raise Morpho::Exceptions::StandardError.new(
+          status: 401
+        )
       end
 
-      def render_unauthorized_detailed(errors = {})
-        render_unauthorized(errors)
+      def render_payment_required
+        raise Morpho::Exceptions::StandardError.new(
+          status: 402
+        )
       end
 
-      def render_payment_required(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.payment_required'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 402)
+      def render_forbidden
+        raise Morpho::Exceptions::StandardError.new(
+          status: 403
+        )
       end
 
-      def render_forbidden(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.forbidden'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 403)
+      def render_not_found
+        raise Morpho::Exceptions::StandardError.new(
+          status: 404
+        )
       end
 
-      def render_not_found(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.not_found'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 404)
+      def render_method_not_allowed
+        raise Morpho::Exceptions::StandardError.new(
+          status: 405
+        )
       end
 
-      def render_method_not_allowed(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.method_not_allowed'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 405)
+      def render_unprocessable_entity
+        raise Morpho::Exceptions::StandardError.new(
+          status: 422
+        )
       end
 
-      def render_unprocessable_entity(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.unprocessable_entity'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 422)
-      end
-
-      def render_locked(errors = {})
-        error!({
-          message: I18n.t('morpho.api.messages.locked'),
-          errors: errors,
-          with: Morpho::Entities::Error
-        }, 423)
-      end
-
-      def render_unprocessable_entity_detailed(errors = {})
-        render_unprocessable_entity(errors)
+      def render_locked
+        raise Morpho::Exceptions::StandardError.new(
+          status: 423
+        )
       end
 
       def render_no_content
