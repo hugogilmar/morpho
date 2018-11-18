@@ -1,0 +1,393 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-11-18T00:59:16.387Z",
+	"__export_source": "insomnia.desktop.app:v6.2.0",
+	"resources": [
+		{
+			"_id": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"created": 1540420333702,
+			"description": "",
+			"modified": 1540420333702,
+			"name": "Morpho",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_fb3f9c5780504690a337a91532bb1154",
+			"color": null,
+			"created": 1540420333936,
+			"data": {
+				"baseUrl": "http://localhost:3000/api"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1540420333936,
+			"modified": 1540421964656,
+			"name": "New Environment",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_f062a78465984ddeaffdd88fb94671e2",
+			"cookies": [],
+			"created": 1540420333940,
+			"modified": 1540420333940,
+			"name": "Default Jar",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_e2324dbdecf54863b748ce437d4ee1c5",
+			"created": 1540421851270,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1538173875991,
+			"modified": 1540421890004,
+			"name": "Externals",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_1b29c4e3f8c04d55bbb8563a4d842f60",
+			"created": 1540421877889,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1538173876116,
+			"modified": 1540421877914,
+			"name": "Tokens",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_6e6a914bcbc5464893d60f5ddb806f11",
+			"created": 1540421902907,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1538174823254.5,
+			"modified": 1540421902921,
+			"name": "Users",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_38a90f44f20d4a1dba08aeb0041efd04",
+			"created": 1540421910834,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1538248103971.5,
+			"modified": 1540421910891,
+			"name": "Passwords",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_6eb27be13151492d89ba2e1dcfc08f87",
+			"created": 1540421923363,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1538326690838.75,
+			"modified": 1540421923370,
+			"name": "Activations",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_4073919d9e9742d2b9e6ceb2581ad453",
+			"created": 1540421927218,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1538328818276,
+			"modified": 1540421927228,
+			"name": "Unlocks",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_0c640e4e95ed48869c97bf52d116fbb7",
+			"created": 1540937517008,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1540937517008,
+			"modified": 1540937517008,
+			"name": "Hello",
+			"parentId": "wrk_a8b66f9fd28f437c8f50c52ad1508900",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_ad9c5e0ea254434992df5d9d4c9ab680",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"data\": {\n\t\t\"email\": \"herazo@applaudostudios.com\",\n\t\t\"provider\": \"facebook\",\n\t\t\"uid\": \"1528113515\"\n\t}\n}"
+			},
+			"created": 1540421851273,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_2b19a76a6b6b4460b3b3296c99eada5b",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1540246105303,
+			"method": "POST",
+			"modified": 1542059917948,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_e2324dbdecf54863b748ce437d4ee1c5",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/externals",
+			"_type": "request"
+		},
+		{
+			"_id": "req_39a43a7f38714be097282c10b9874a63",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"data\": {\n\t\t\"email\": \"herazo@applaudostudios.com\",\n\t\t\"password\": \"A1236547890!\"\n\t}\n}"
+			},
+			"created": 1540421877896,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_162339b674d948d88efb6d309f0a56e6",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538173885284,
+			"method": "POST",
+			"modified": 1540938069478,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_1b29c4e3f8c04d55bbb8563a4d842f60",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/tokens",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a0de0e43615f46eb867e9524ecb6d138",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"data\": {\n\t\t\"refresh_token\": \"rdtWY714ENy78kuvKhMeBQ\"\n\t}\n}"
+			},
+			"created": 1540421877901,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9ce44b6b11be4c2db473891304cb36dc",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1539983889106,
+			"method": "POST",
+			"modified": 1540933112927,
+			"name": "Refresh",
+			"parameters": [],
+			"parentId": "fld_1b29c4e3f8c04d55bbb8563a4d842f60",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/tokens/refresh",
+			"_type": "request"
+		},
+		{
+			"_id": "req_86aa6177c7c94f0484bbc2f504299f88",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"data\": {\n\t\t\"email\": \"herazo+2@applaudostudios.com\",\n\t\t\"password\": \"A1236547890!\",\n\t\t\"password_confirmation\": \"A1236547890!\"\n\t}\n}"
+			},
+			"created": 1540421902911,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_30f307a2e6964b43aba379fc96b33c80",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538175781952,
+			"method": "POST",
+			"modified": 1542502699948,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_6e6a914bcbc5464893d60f5ddb806f11",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/users",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e00e54129f0f446da8b56a22e8dba8dd",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"data\": {\n\t\t\"esmail\": \"herazo@applaudostudios.com\"\n\t}\n}"
+			},
+			"created": 1540421910845,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_d959bda4382c46cc8d30ad93acf5fbc6",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538320448249,
+			"method": "POST",
+			"modified": 1542142473473,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_38a90f44f20d4a1dba08aeb0041efd04",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/passwords",
+			"_type": "request"
+		},
+		{
+			"_id": "req_854b1b8a8b764a499f5fbdff41d9e99c",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"data\": {\n\t\t\"email\": \"herazo+1@applaudostudios.com\"\n\t}\n}"
+			},
+			"created": 1540421923366,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_c20c7a21895d4233abea9f7cd382ed80",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538328786304,
+			"method": "POST",
+			"modified": 1542151578690,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_6eb27be13151492d89ba2e1dcfc08f87",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/activations",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0048451b1e5245eea302ccda9f691935",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"dasta\": {\n\t\t\"email\": \"herazo+1@applaudostudios.com\"\n\t}\n}"
+			},
+			"created": 1540421927222,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_276623c27ace44b99a9ac12a70aabdcd",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1538328868889,
+			"method": "POST",
+			"modified": 1542138846169,
+			"name": "Create",
+			"parameters": [],
+			"parentId": "fld_4073919d9e9742d2b9e6ceb2581ad453",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/unlocks",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f5a55b19f8e34f26860182b2713cd082",
+			"authentication": {},
+			"body": {},
+			"created": 1540937522992,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1540937522992,
+			"method": "GET",
+			"modified": 1542144412459,
+			"name": "Public",
+			"parameters": [],
+			"parentId": "fld_0c640e4e95ed48869c97bf52d116fbb7",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/hello/public",
+			"_type": "request"
+		},
+		{
+			"_id": "req_870fd242de7a4b6fbed397ad24743d29",
+			"authentication": {},
+			"body": {},
+			"created": 1540937528972,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_4ac03a19cf9b47e8b742a1591fc6b378",
+					"name": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOiIxNTQwOTQxNjcxIiwiaWF0IjoxNTQwOTM4MDcxLCJlbWFpbCI6ImhlcmF6b0BhcHBsYXVkb3N0dWRpb3MuY29tIn0.oOLUG2b2UGMjDNwJfqnKngKP4vDhEUaQk5wTyOfAnfI"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1540937528972,
+			"method": "GET",
+			"modified": 1542143289448,
+			"name": "Private",
+			"parameters": [],
+			"parentId": "fld_0c640e4e95ed48869c97bf52d116fbb7",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ baseUrl  }}/hello/private",
+			"_type": "request"
+		}
+	]
+}
