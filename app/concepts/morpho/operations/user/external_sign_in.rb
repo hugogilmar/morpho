@@ -4,7 +4,7 @@ module Morpho
   module Operations
     module User
       class ExternalSignIn < Morpho::Operations::User::GenerateToken
-        step nil, delete: :check!, id: ""
+        step nil, delete: :check!, id: ''
 
         def build_model!(options, data:, **)
           provider = data.fetch('provider').downcase

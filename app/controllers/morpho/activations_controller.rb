@@ -19,9 +19,9 @@ module Morpho
     def show
       if user && !user.active?
         user.activate!
-        render "morpho/activations/success"
+        render 'morpho/activations/success'
       else
-        render "morpho/activations/failure"
+        render 'morpho/activations/failure'
       end
     end
 

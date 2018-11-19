@@ -5,7 +5,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "morpho"
+require 'morpho'
 
 module Dummy
   class Application < Rails::Application
