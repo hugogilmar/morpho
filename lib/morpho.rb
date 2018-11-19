@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'morpho/loader'
 require 'morpho/engine'
 require 'morpho/cipher'

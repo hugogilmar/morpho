@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SorceryActivityLogging < ActiveRecord::Migration[5.2]
   def change
     add_column :morpho_users, :last_login_at,     :datetime, :default => nil

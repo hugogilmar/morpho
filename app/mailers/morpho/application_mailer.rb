@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Morpho
   class ApplicationMailer < ActionMailer::Base
     layout 'mailer'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Morpho.configure do |config|
   config.host = ENV.fetch('HOST', 'localhost:3000')
   config.protocol = ENV.fetch('PROTOCOL', 'http')

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Morpho
   class UserMailer < ApplicationMailer
     def activation_needed_email(user)

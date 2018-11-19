@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Morpho
   class UnlocksController < ApplicationController
     skip_before_action :require_login, only: [ :new, :create, :show ]

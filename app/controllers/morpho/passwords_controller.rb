@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Morpho
   class PasswordsController < ApplicationController
     skip_before_action :require_login, only: [ :new, :create, :edit, :update ]

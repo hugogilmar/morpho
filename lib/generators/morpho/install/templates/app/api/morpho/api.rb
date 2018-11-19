@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Morpho
   class API < ::Grape::API
     format :json

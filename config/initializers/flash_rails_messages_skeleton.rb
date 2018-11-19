@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlashRailsMessages
   class Base
     def alert_element(type, message)

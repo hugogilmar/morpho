@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'morpho/configurations/mailer'
 require 'morpho/configurations/api'
 require 'morpho/configurations/jwt'
