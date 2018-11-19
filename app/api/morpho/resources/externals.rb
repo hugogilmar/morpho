@@ -15,10 +15,16 @@ module Morpho
           requires :data, type: Morpho::Entities::External
         end
         post do
-          result = Morpho::User::Operation::ExternalSignIn.call(params, ip: request.ip)
+          result = Morpho::Operations::User::ExternalSignIn.call(
+            'params' => params,
+            'model.class' => Morpho::User,
+            'contract.class' => Morpho::Contracts::User::ExternalSignIn,
+            'presenter.class' => Morpho::Entities::AuthenticationToken,
+            'ip_address' => request.ip
+          )
 
           if result.success?
-            present result['token'], with: Morpho::Entities::AuthenticationToken
+            present result['response']
           end
         end
       end
