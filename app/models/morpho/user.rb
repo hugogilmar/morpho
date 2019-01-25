@@ -18,6 +18,11 @@ module Morpho
       !self.login_locked?
     end
 
+    def setup_activation!
+      self.setup_activation
+      self.save
+    end
+
     def register_last_login_activity!(ip_address)
       self.set_last_login_at(Time.now)
       self.set_last_ip_address(ip_address)
@@ -28,8 +33,7 @@ module Morpho
     end
 
     def resend_activation_needed_email!
-      self.setup_activation
-      self.reload
+      self.setup_activation!
       self.send_activation_needed_email!
     end
 
