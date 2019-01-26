@@ -17,3 +17,5 @@ test/dummy/config/initializers/morpho.rb
 
 .env
 Gemfile.lock
+
+.DS_Store

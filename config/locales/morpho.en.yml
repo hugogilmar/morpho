@@ -149,6 +149,8 @@ en:
           bad_credentials: 'User email and/or password is incorrect'
         refresh_token:
           invalid: 'Invalid token'
+          account_not_confirmed: 'User account has not been confirmed'
+          account_locked: 'User account has been locked'
         unlock:
           email_not_exists: 'Email address does not belongs to a registered account'
           account_not_locked: 'User account has not been locked'

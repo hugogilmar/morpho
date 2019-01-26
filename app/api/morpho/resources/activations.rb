@@ -4,7 +4,7 @@ module Morpho
       helpers Morpho::Helpers::HTTPResponses
 
       namespace :activations do
-        desc 'Request user activation token' do
+        desc 'Resend activation instructions email' do
           detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
@@ -16,11 +16,16 @@ module Morpho
         params do
           requires :data, type: Morpho::Entities::UserEmail
         end
-        post do
-          result = Morpho::User::Operation::Activate.call(params)
+        post :resend_activation_email do
+          result = Morpho::Operations::User::ResendActivationEmail.call(
+            'params' => params,
+            'model.class' => Morpho::User,
+            'contract.class' => Morpho::Contracts::User::ResendActivationEmail,
+            'presenter.class' => Morpho::Entities::User
+          )
 
           if result.success?
-            present result['model'], with: Morpho::Entities::User
+            present result['response']
           end
         end
       end

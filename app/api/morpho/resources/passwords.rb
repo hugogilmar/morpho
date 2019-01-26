@@ -4,7 +4,7 @@ module Morpho
       helpers Morpho::Helpers::HTTPResponses
 
       namespace :passwords do
-        desc 'Request user reset password token' do
+        desc 'Send reset password instructions email' do
           detail ''
           success Morpho::Grape::DataWrapper.new(Morpho::Entities::User)
           failure [
@@ -16,11 +16,16 @@ module Morpho
         params do
           requires :data, type: Morpho::Entities::UserEmail
         end
-        post do
-          result = Morpho::User::Operation::ResetPassword.call(params)
+        post :send_reset_password_email do
+          result = Morpho::Operations::User::SendResetPasswordEmail.call(
+            'params' => params,
+            'model.class' => Morpho::User,
+            'contract.class' => Morpho::Contracts::User::SendResetPasswordEmail,
+            'presenter.class' => Morpho::Entities::User
+          )
 
           if result.success?
-            present result['model'], with: Morpho::Entities::User
+            present result['response']
           end
         end
       end
