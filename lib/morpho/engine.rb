@@ -18,6 +18,7 @@ module Morpho
 
       mailer.default_url_options = {
         host: Morpho.config.host,
+        port: Morpho.config.port,
         protocol: Morpho.config.protocol
       }
 
