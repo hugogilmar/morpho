@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+    user: rails
+    env_file: .env
+    volumes:
+      - .:/home/rails/app
+      - gems:/home/rails/.gem
+    ports:
+      - 3000:3000
+volumes:
+  gems:
+    driver: local

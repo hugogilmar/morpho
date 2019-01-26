@@ -4,7 +4,21 @@ All notable changes to `morpho` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-### [1.2.0] - 2018-11-13
+## [1.2.1] - 2019-01-25
+
+### Added
+
+- Port engine configuration and environment variable
+
+### Fixed
+
+- Save new activation token before send email
+
+### Removed
+
+- Engine migrations auto load
+
+## [1.2.0] - 2018-11-13
 
 ### Added
 
@@ -15,7 +29,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Refactor error responses and helpers to use `StandardError` exception
 - Refactor operations flow to raise a `StandardError` exception for error handling
 
-### [1.1.2] - 2018-10-31
+## [1.1.2] - 2018-10-31
 
 ### Added
 

@@ -6,6 +6,7 @@ require 'morpho/configurations/auth'
 module Morpho
   class Configuration
     attr_accessor :host
+    attr_accessor :port
     attr_accessor :protocol
 
     attr_accessor :mailer
@@ -15,6 +16,7 @@ module Morpho
 
     def initialize
       self.host = ''
+      self.port = ''
       self.protocol = ''
 
       self.mailer = Morpho::Configurations::Mailer.new
