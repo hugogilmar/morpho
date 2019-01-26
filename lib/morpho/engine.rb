@@ -7,12 +7,6 @@ module Morpho
       config.autoload_paths << File.expand_path('app/api', __dir__)
     end
 
-    initializer 'morpho.migrations', before: :load_config_initializers do |app|
-      config.paths['db/migrate'].expanded.each do |expanded_path|
-        app.config.paths['db/migrate'] << expanded_path
-      end
-    end
-
     initializer 'morpho.configurations', after: :load_config_initializers do |app|
       mailer = ActionMailer::Base
       mailer.delivery_method = Morpho.config.mailer.delivery_method
